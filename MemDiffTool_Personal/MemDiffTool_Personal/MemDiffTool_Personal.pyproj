@@ -25,6 +25,9 @@
     <Compile Include="convertModule.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="heatmap.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MemDiffTool_Personal.py" />
   </ItemGroup>
   <PropertyGroup>
