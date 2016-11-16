@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>00b573a2-e523-465a-8ec7-65d0505e0148</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>MemDiffTool_Personal.py</StartupFile>
+    <StartupFile>readFile.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -29,6 +29,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="MemDiffTool_Personal.py" />
+    <Compile Include="readFile.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
