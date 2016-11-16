@@ -1,10 +1,9 @@
-
 def read_in_chunks(file_object, chunk_size=1):
     while True:
         data = file_object.read(chunk_size)
         if not data:
             break
-        yield data
+        yield ord(data)
 
 fo = open("forheatmap.txt", "wb")
 
@@ -12,11 +11,11 @@ fo = open("forheatmap.txt", "wb")
 f = open("D:\Dump\A\dump.mem","rb")
 line=0
 for piece in read_in_chunks(f):
-   line=line+1
+    line=line+1
     if line%16==0:
         fo.write(str(piece)+"\r\n")
     else:
-        fo.write(str(piece)+" ") 
+        fo.write(str(piece)+" ")
 fo.close()
 
 print("Done")
