@@ -32,6 +32,9 @@
     <Compile Include="readFile.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="read_convert_dump.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
