@@ -1,7 +1,8 @@
 import hexdump
 import pandas
 import time
-
+import numpy as np
+import os
 
 
 
@@ -45,8 +46,10 @@ print("--- %s seconds ---" % (time.time() - start_time))
 #Line by Line
 start_time = time.time()
 with open("C:\\Users\\ali-d\\Desktop\\Work\\20161029.mem","rb") as FileObj:
+    #C:\Users\ali-d\Desktop\Work
+    c = open('C:\\Users\\ali-d\\Desktop\\Work\\TEST.BAK', 'wb')
     for lines in FileObj:
-        x=lines
+        c.write(lines)
         #for i in range(len(lines)):
             #x=lines[0]
 
