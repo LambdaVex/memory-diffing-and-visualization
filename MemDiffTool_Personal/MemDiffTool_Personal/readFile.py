@@ -1,6 +1,6 @@
 import hexdump
 import pandas
-
+import time
 
 
 
@@ -15,6 +15,7 @@ with open("F:\\MemoryDumps\\RamCapturer\\New\\A\\20161029.mem") as infile:
 '''
 # "C:\Users\ali-d\Desktop\Work\20161029.mem"
 
+'''
 #Working
 
 with open("C:\\Users\\ali-d\\Desktop\\Work\\20161029.mem", "rb") as f:
@@ -27,5 +28,29 @@ with open("C:\\Users\\ali-d\\Desktop\\Work\\20161029.mem", "rb") as f:
         c.write(byte)
     c.close()
 
+'''
+
+'''
+#Byte by Byte
+start_time = time.time()
+with open("C:\\Users\\ali-d\\Desktop\\Work\\20161029.mem", "rb") as f:
+    byte = f.read(1)
+    while byte:
+        # Do stuff with byte.
+        byte = f.read(1)
+
+print("DON")
+print("--- %s seconds ---" % (time.time() - start_time))
+'''
+#Line by Line
+start_time = time.time()
+with open("C:\\Users\\ali-d\\Desktop\\Work\\20161029.mem","rb") as FileObj:
+    for lines in FileObj:
+        x=lines
+        #for i in range(len(lines)):
+            #x=lines[0]
+
+print("DON")
+print("--- %s seconds ---" % (time.time() - start_time))
 
 
