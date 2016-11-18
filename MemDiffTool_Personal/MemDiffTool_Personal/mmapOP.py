@@ -10,3 +10,8 @@ def closeDumpFile(map):
     print("Closing Dump File...")
     map.close()
 
+    
+'''
+To use these functions just import them as the following to your file:
+from mmapOP import openDumpFile, closeDumpFile
+'''
