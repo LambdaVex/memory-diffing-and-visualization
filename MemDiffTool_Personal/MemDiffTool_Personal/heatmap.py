@@ -6,22 +6,40 @@ from bokeh.plotting import figure
 from bokeh.sampledata.unemployment1948 import data
 from bokeh.charts import HeatMap, output_file, show
 from mmapOP import openDumpFile, closeDumpFile
-
-
-
+import time
+import sys
 
 map=openDumpFile("C:\\Users\\ali-d\\Desktop\\Work\\20161029.mem")
-print(map[3])
-Size=1000
+print("Your map is of the type {0} and of the length {1}".format(type(map),len(map)))
+
+#print(map[3])
+Size=104857600
 chunk = map.read(Size)
+
+#start_time = time.time()
+#Tit=[]
+#for i in range(Size):
+   # Tit.append(chunk[i])
+#print("--- %s seconds ---" % (time.time() - start_time))
+
+print(chunk[3])
+
 print(type(chunk))
+
 print(len(chunk))
+
+closeDumpFile(map)
+
+
+
+
 
 #for i in range(100):
  #   print(chunk[i])
 #Mito=[1,23,13,42,6,2,6,48,9,6,5,4,4,5,6,7,28,9,0,4,2,3,4,25,6,7,5,6,8,3,2,3,20,40,30,22,33,44,2,3,1,41,25,23,15,16,17,34,23,63,24,34,34]
 #print(type(Mito))
 #print(chunk[80])
+'''
 Tit=[]
 for i in range(Size):
     Tit.append(chunk[i])
@@ -41,14 +59,7 @@ hm.plot_height=10400
 
 output_file('heatmap.html')
 show(hm)
-
-
-closeDumpFile(map)
-
-
-
-
-
+'''
 
 
 

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>00b573a2-e523-465a-8ec7-65d0505e0148</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>heatmap.py</StartupFile>
+    <StartupFile>histogram.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,10 +25,19 @@
     <Compile Include="convertModule.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Ex.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ex1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="heatmap.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="MemDiffTool_Personal.py" />
+    <Compile Include="memmap.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="mmapOP.py">
       <SubType>Code</SubType>
     </Compile>
@@ -38,6 +47,17 @@
     <Compile Include="read_convert_dump.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TEMP.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Test.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="histogram.py">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
