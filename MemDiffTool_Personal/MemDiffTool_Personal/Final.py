@@ -24,7 +24,7 @@ with open("D:\\Dump\\A\\dump.mem", "r+b") as f:
     size=mm.size()
     factors=factors(size)
     for i in factors:
-        print '{ch}_)The number of chunks:{c} and each one size is:{cc}'.format(ch=count,c=size/i,cc=i )
+        print ('{ch}_)The number of chunks:{c} and each one size is:{cc}'.format(ch=count,c=size/i,cc=i ))
         choose[count]=i
         count=count+1
     choice = input("write the number of your choice: ")
