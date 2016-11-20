@@ -33,8 +33,8 @@ with open("D:\\Dump\\A\\dump.mem", "r+b") as f:
         fo = open('{name}.txt'.format(name=i), "wb")
         fo.write(mm.read(bytes))
         fo.close()
-        mythread = MyThread(name = "Thread-{}".format(i))
-        mythread.start()
+        #mythread = MyThread(name = "Thread-{}".format(i))
+        #mythread.start()
     # close the map
     mm.close()
 
