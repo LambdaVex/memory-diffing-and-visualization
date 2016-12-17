@@ -134,6 +134,8 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
+MemDiffTool_Personal/MemDiffTool_Personal/configuration.py
+
 # Click-Once directory
 publish/
 

@@ -22,9 +22,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Configuration.py">
       <SubType>Code</SubType>
     </Compile>
+=======
+    <Compile Include="Configuration.py" />
+>>>>>>> d12685ebdb135eb9aa906eefe91beae026010439
     <Compile Include="convertModule.py">
       <SubType>Code</SubType>
     </Compile>
@@ -56,7 +60,13 @@
     <Compile Include="Test.py">
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="volatilityInteraction.py" />
+=======
+    <Compile Include="volatilityInteraction.py">
+      <SubType>Code</SubType>
+    </Compile>
+>>>>>>> d12685ebdb135eb9aa906eefe91beae026010439
   </ItemGroup>
   <ItemGroup>
     <Content Include="configuration.conf">
