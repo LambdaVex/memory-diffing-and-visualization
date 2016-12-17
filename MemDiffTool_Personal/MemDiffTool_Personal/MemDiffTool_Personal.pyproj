@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>00b573a2-e523-465a-8ec7-65d0505e0148</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>histogram.py</StartupFile>
+    <StartupFile>volatilityInteraction.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Configuration.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="convertModule.py">
       <SubType>Code</SubType>
     </Compile>
@@ -53,8 +56,12 @@
     <Compile Include="Test.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="volatilityInteraction.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="configuration.conf">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="histogram.py">
       <SubType>Code</SubType>
     </Content>

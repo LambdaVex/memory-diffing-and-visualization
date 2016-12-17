@@ -1,25 +1,25 @@
 import subprocess
 import os
 import pandas
-import Configuration as co
+import configuration as co
 
 volatilityLoc=co.volatility_standalone_location
 dumpLoc=co.dump_memory_location
 
 def vol_pslist():
-    f = open(co.output_location, "w")
+    f = open(co.output_location+"\pslist.info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 pslist"
     subprocess.call(Command,stdout=f)
     print("pslist done!")
 
 def vol_memmap(PID):
-    f = open(co.output_location+str(PID)+".info", "w")
+    f = open(co.output_location+"\memmap"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memmap -p " + str(PID)
     subprocess.call(Command,stdout=f)
     print("memmap for PID:"+str(PID)+" is done!")
 
 def vol_dlllist(PID):
-    f = open(co.output_location+str(PID)+".info", "w")
+    f = open(co.output_location+"\dlllist"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 dlllist -p " + str(PID)
     subprocess.call(Command,stdout=f)
     print("dlllist for PID:"+str(PID)+" is done!")
@@ -38,8 +38,8 @@ def processMemory(infile):
 
 
 # First Obtain pslist
-#vol_pslist()
-pslist=pandas.read_fwf('DumpInfo\pslist.info')
+vol_pslist()
+pslist=pandas.read_fwf(co.output_location+"\pslist.info")
 
 # Print your PID list
 #for i in range(len(pslist)):
@@ -48,7 +48,7 @@ pslist=pandas.read_fwf('DumpInfo\pslist.info')
 
 
 for i in range(1,len(pslist)):
-    vol_memmap(pslist.iloc[i,2])
+    vol_dlllist(pslist.iloc[i,2])
     #print("{0}".format(pslist.iloc[i,2]))
 #vol_memmap(4)
 
