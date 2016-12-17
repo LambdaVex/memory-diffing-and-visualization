@@ -49,7 +49,8 @@ pslist=pandas.read_fwf(co.output_location+"\pslist.info")
 
 
 for i in range(1,len(pslist)):
-    vol_dlllist(pslist.iloc[i,2])
+    #vol_dlllist(pslist.iloc[i,2])
+    vol_memmap(pslist.iloc[i,2])
 #for i in range(1,len(pslist)):
 #    vol_memmap(pslist.iloc[i,2])
     #print("{0}".format(pslist.iloc[i,2]))
