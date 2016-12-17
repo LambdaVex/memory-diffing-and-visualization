@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>00b573a2-e523-465a-8ec7-65d0505e0148</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>volatilityInteraction.py</StartupFile>
+    <StartupFile>mapping.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -37,6 +37,7 @@
     <Compile Include="heatmap.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="mapping.py" />
     <Compile Include="MemDiffTool_Personal.py" />
     <Compile Include="memmap.py">
       <SubType>Code</SubType>
@@ -51,9 +52,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TEMP.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Test.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="volatilityInteraction.py" />
