@@ -13,21 +13,13 @@ def vol_pslist():
     print("pslist done!")
 
 def vol_memmap(PID):
-<<<<<<< HEAD
     f = open(co.output_location+"\memmap"+"_"+str(PID)+".info", "w")
-=======
-    f = open(co.output_location+"_"+str(PID)+".info", "w")
->>>>>>> d12685ebdb135eb9aa906eefe91beae026010439
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memmap -p " + str(PID)
     subprocess.call(Command,stdout=f)
     print("memmap for PID:"+str(PID)+" is done!")
 
 def vol_dlllist(PID):
-<<<<<<< HEAD
     f = open(co.output_location+"\dlllist"+"_"+str(PID)+".info", "w")
-=======
-    f = open(co.output_location+"_"+str(PID)+".info", "w")
->>>>>>> d12685ebdb135eb9aa906eefe91beae026010439
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 dlllist -p " + str(PID)
     subprocess.call(Command,stdout=f)
     print("dlllist for PID:"+str(PID)+" is done!")
@@ -47,11 +39,8 @@ def processMemory(infile):
 
 # First Obtain pslist
 vol_pslist()
-<<<<<<< HEAD
 pslist=pandas.read_fwf(co.output_location+"\pslist.info")
-=======
 #pslist=pandas.read_fwf('DumpInfo\pslist.info')
->>>>>>> d12685ebdb135eb9aa906eefe91beae026010439
 
 # Print your PID list
 #for i in range(len(pslist)):
@@ -59,13 +48,10 @@ pslist=pandas.read_fwf(co.output_location+"\pslist.info")
 
 
 
-<<<<<<< HEAD
 for i in range(1,len(pslist)):
     vol_dlllist(pslist.iloc[i,2])
-=======
 #for i in range(1,len(pslist)):
 #    vol_memmap(pslist.iloc[i,2])
->>>>>>> d12685ebdb135eb9aa906eefe91beae026010439
     #print("{0}".format(pslist.iloc[i,2]))
 #vol_memmap(4)
 
