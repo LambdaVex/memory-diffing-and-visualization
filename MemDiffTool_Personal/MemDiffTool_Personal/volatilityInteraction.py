@@ -1,21 +1,28 @@
 import subprocess
 import os
 import pandas
+import Configuration as co
 
-volatilityLoc="volatility-2.5.standalone.exe"
-dumpLoc="C:\\Users\\ali-d\\Desktop\\Work\\MEMFILE2GB\\dumpMemFile.mem"
+volatilityLoc=co.volatility_standalone_location
+dumpLoc=co.dump_memory_location
 
 def vol_pslist():
-    f = open("DumpInfo\pslist.info", "w")
+    f = open(co.output_location, "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 pslist"
     subprocess.call(Command,stdout=f)
     print("pslist done!")
 
 def vol_memmap(PID):
-    f = open("DumpInfo\memmap"+str(PID)+".info", "w")
+    f = open(co.output_location+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memmap -p " + str(PID)
     subprocess.call(Command,stdout=f)
     print("memmap for PID:"+str(PID)+" is done!")
+
+def vol_dlllist(PID):
+    f = open(co.output_location+str(PID)+".info", "w")
+    Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 dlllist -p " + str(PID)
+    subprocess.call(Command,stdout=f)
+    print("dlllist for PID:"+str(PID)+" is done!")
 
 
 def processMemory(infile):
