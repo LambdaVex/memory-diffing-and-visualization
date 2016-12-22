@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>00b573a2-e523-465a-8ec7-65d0505e0148</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>CheckSquential.py</StartupFile>
+    <StartupFile>volatilityInteraction.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

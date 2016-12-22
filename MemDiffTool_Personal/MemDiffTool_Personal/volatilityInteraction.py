@@ -24,6 +24,12 @@ def vol_dlllist(PID):
     subprocess.call(Command,stdout=f)
     print("dlllist for PID:"+str(PID)+" is done!")
 
+def vol_memdump(PID):
+    f = open(co.output_location+"\memdump"+"_"+str(PID)+".info", "w")
+    Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memdump -p " + str(PID) +" -D "+co.output_location+"\DumpFolder"
+    subprocess.call(Command,stdout=f)
+    print("memdump for PID:"+str(PID)+" is done!")
+
 
 def processMemory(infile):
     df3=pandas.read_fwf(infile)
@@ -50,7 +56,8 @@ pslist=pandas.read_fwf(co.output_location+"\pslist.info")
 
 for i in range(1,len(pslist)):
     #vol_dlllist(pslist.iloc[i,2])
-    vol_memmap(pslist.iloc[i,2])
+    #vol_memmap(pslist.iloc[i,2])
+    vol_memdump(pslist.iloc[i,2])
 #for i in range(1,len(pslist)):
 #    vol_memmap(pslist.iloc[i,2])
     #print("{0}".format(pslist.iloc[i,2]))
