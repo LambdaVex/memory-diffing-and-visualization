@@ -4,6 +4,7 @@ import pandas
 import configuration as co
 from bisect import *
 from pandas import DataFrame
+import time
 
 volatilityLoc=co.volatility_standalone_location
 dumpLoc=co.dump_memory_location
@@ -78,9 +79,6 @@ def processMemory(infile):
 
 
 
-memmap=pandas.read_fwf(co.output_location+"\memmap_280.info")
-dlllist=pandas.read_fwf(co.output_location+"\dlllist_280.info")
-virtual_address=memmap.ix[:,0]
 """
 X=memmap.iloc[5,0]
 print(X)
@@ -90,28 +88,39 @@ print(hex_int)
 print(type(hex_int))
 
 """
+
+memmap=pandas.read_fwf(co.output_location+"\memmap_280.info")
+dlllist=pandas.read_fwf(co.output_location+"\dlllist_280.info")
+
+# converts the table to list 
+virtual_address=memmap.ix[:,0]
+
 for i in range(5,len(dlllist)):
        line = dlllist.iloc[i,0]
        data = line.split() #split string into a list
        Base=data[0]
        Size=data[1]
-       Path=data[3]
+       Path=os.path.basename(os.path.normpath(data[3]))
        print("Base= {0} size= {1} path= {2}".format(Base,Size,Path))
        slice=[Path]
+
        #search for the addresse in memmap equal to Base and name it page
-       page=index(virtual_address,Base)+2
+       page=index(virtual_address,Base)
        print(page)
+       print(virtual_address[page])
+       time.sleep(5.5) 
        while int(virtual_address[page],16)<=int(Base,16)+int(Size,16):
            print("Enter loop")
            print("while {0}<={1}+{2}".format(virtual_address[page],Base,Size))
            slice.insert(len(slice),virtual_address[page])
            #next page from memmap
            page=page+1
+            
        #write this slice 
        #draw this slice
 
 
-
+# this converts the panda to list 
 #List=memmap.ix[:,0]
 #print(List[len(List)-1])
 
