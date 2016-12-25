@@ -31,5 +31,11 @@ class Process:
                     module=md.Module("n/a",data[0],data[1])       
                     self.modules.append(module)
                         
-                    
+
+'''
+try:
+    sdfhdfghdfg
+except:
+    continue
+''' 
       
