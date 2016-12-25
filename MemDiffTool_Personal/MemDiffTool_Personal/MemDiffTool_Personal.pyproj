@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="bisect_module.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CheckSquential.py">
       <SubType>Code</SubType>
     </Compile>
@@ -52,6 +55,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="memdiff_process.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="module.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="process.py">
