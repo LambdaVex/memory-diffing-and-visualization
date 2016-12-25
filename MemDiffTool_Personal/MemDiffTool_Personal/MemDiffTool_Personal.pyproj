@@ -60,6 +60,9 @@
     <Compile Include="module.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="page.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="process.py">
       <SubType>Code</SubType>
     </Compile>

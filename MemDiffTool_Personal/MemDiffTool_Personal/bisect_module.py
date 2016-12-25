@@ -5,7 +5,8 @@ def index(a, x):
     i = bisect_left(a, x)
     if i != len(a) and a[i] == x:
         return i
-    raise ValueError
+    else:
+        return -1
 
 def find_lt(a, x):
     'Find rightmost value less than x'

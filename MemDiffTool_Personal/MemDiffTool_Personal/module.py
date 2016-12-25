@@ -14,12 +14,18 @@ class Module:
         self.size = size
         self.pages = []    
         #252
+
     def add_pages(self,pid):
         print(pid+" "+self.base)
-        memmap=pandas.read_fwf(co.output_location+"\memmap_252B.info",widths=[18,18,18,18])
+        memmap=pandas.read_fwf(co.output_location+"\memmap_"+pid+".info",widths=[18,18,18,18])
         virtual_address=memmap.ix[:,0]
-        print(len(virtual_address))
-        print(virtual_address)
-        #page=bi.index(virtual_address,self.base)
-        #print(page)
-        time.sleep(5)
+        #print(virtual_address)
+        page=bi.index(virtual_address,self.base)
+        print(page)
+       # print(virtual_address[page])
+        if(page != -1):
+            while int(virtual_address[page],16)<=int(self.base,16)+int(self.size,16):
+                self.pages.append(virtual_address[page])
+                print(virtual_address[page]+"Added!")
+                page=page+1
+           # time.sleep(5)
