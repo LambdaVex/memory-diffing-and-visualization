@@ -4,7 +4,10 @@ import pandas
 import configuration as co
 from bisect import *
 from pandas import DataFrame
+import mapping
 import time
+import sys
+
 
 volatilityLoc=co.volatility_standalone_location
 dumpLoc=co.dump_memory_location
@@ -13,6 +16,7 @@ dumpLoc=co.dump_memory_location
 def index(a, x):
     'Locate the leftmost value exactly equal to x'
     i = bisect_left(a, x)
+    print("if {0} != {1} and {2} == {3}:\n".format(i,len(a),a[i],x))
     if i != len(a) and a[i] == x:
         return i
     raise ValueError
@@ -89,11 +93,14 @@ print(type(hex_int))
 
 """
 
-memmap=pandas.read_fwf(co.output_location+"\memmap_280.info")
-dlllist=pandas.read_fwf(co.output_location+"\dlllist_280.info")
+memmap=pandas.read_fwf(co.output_location+"\memmap_280.info",widths=[18,18,18,18],header=[2,2,2,2],skip_blank_lines=True)
+dlllist=pandas.read_fwf(co.output_location+"\dlllist_280.info",widths=[18,18,18,18],header=[6,6,6,6],skip_blank_lines=True)
 
 # converts the table to list 
 virtual_address=memmap.ix[:,0]
+
+
+physical_address=memmap.ix[:,1]
 
 for i in range(5,len(dlllist)):
        line = dlllist.iloc[i,0]
@@ -101,21 +108,33 @@ for i in range(5,len(dlllist)):
        Base=data[0]
        Size=data[1]
        Path=os.path.basename(os.path.normpath(data[3]))
-       print("Base= {0} size= {1} path= {2}".format(Base,Size,Path))
+       print("Base= {0} size= {1} path= {2} <from dlllist plug in>".format(Base,Size,Path))
        slice=[Path]
+       heatmap_draw_statistics=[Path]
 
        #search for the addresse in memmap equal to Base and name it page
        page=index(virtual_address,Base)
-       print(page)
-       print(virtual_address[page])
+       print("The index of first address matched between virtual address <from memmap> and Base address <from dlllist> is ({0})>".format(page))
+       print("First Vitual address matched is ={0}".format(virtual_address[page]))
        time.sleep(5.5) 
+
+       #slice.insert(len(slice),mapping.slicing(Base,Size))
        while int(virtual_address[page],16)<=int(Base,16)+int(Size,16):
-           print("Enter loop")
-           print("while {0}<={1}+{2}".format(virtual_address[page],Base,Size))
+           non_printable_ASCI=0
+           printable_ASCII=0
+           #print("Enter loop")
+           #print("while {0}<={1}+{2}".format(virtual_address[page],Base,Size))
            slice.insert(len(slice),virtual_address[page])
+           heatmap_draw_statistics.insert(len(heatmap_draw_statistics),mapping.slicing(physical_address[page],'0x1000'))
+           #mapping with statistics
            #next page from memmap
            page=page+1
-            
+       print ('-----------------------------------------------------------------------------------------------')
+       print("Slice extracted ={0} first element refers to the dll or exe considered".format(slice))
+       print ('-----------------------------------------------------------------------------------------------')
+       print("Raw data extracted ={0} first element refers to the dll or exe considered".format(heatmap_draw_statistics))
+       print ('-----------------------------------------------------------------------------------------------')
+
        #write this slice 
        #draw this slice
 
