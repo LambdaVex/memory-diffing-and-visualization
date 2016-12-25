@@ -5,11 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>00b573a2-e523-465a-8ec7-65d0505e0148</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-<<<<<<< HEAD
     <StartupFile>cashing.py</StartupFile>
-=======
-    <StartupFile>memory_dump.py</StartupFile>
->>>>>>> memDiffOOP
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,11 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="cashing.py">
-=======
-    <Compile Include="bisect_module.py">
->>>>>>> memDiffOOP
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CheckSquential.py">
