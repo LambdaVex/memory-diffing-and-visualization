@@ -6,11 +6,12 @@
 *.user
 *.userosscache
 *.sln.docstates
-*.BAK
-*.pyc
-*.pyproj
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+*.pyc
+*.pyproj
+*.BAK
 
 # Build results
 [Dd]ebug/
