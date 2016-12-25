@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>00b573a2-e523-465a-8ec7-65d0505e0148</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>volatilityInteraction.py</StartupFile>
+    <StartupFile>memory_dump.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -45,7 +45,16 @@
     <Compile Include="memmap.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="memory_dump.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="mmapOP.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="memdiff_process.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="process.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="readFile.py">
