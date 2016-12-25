@@ -25,19 +25,19 @@ def search(word):
 def slicing(start, size):
     with open(co.dump_memory_location, "r+b") as f:
         mm = mmap.mmap(f.fileno(), 0)
-        #print (start)
-        #print (size)
-        #print "Initial place of the pointer:"+str(mm.tell())+" in heximal it would be:"+str(hex(mm.tell()))
-        #print (int(start,16))
         mm.seek(int(start,16))
-        #print ("First addresse of the pointer:"+str(mm.tell())+" in heximal it would be:"+str(hex(mm.tell())))
-        #with open("D:\\Dump\\A\\pid340.mem", "wb") as s:
-        #    s.write(mm.read(size))
-        #mm.seek(start)
-        return mm.read(int(size,16))
-        #print(mm.read(int(size,16)))
-        #print ("Last addresse of the pointer:"+str(mm.tell())+" in heximal it would be:"+str(hex(mm.tell())))
-        #print ("Done successfully")
+        rawdata= mm.read(int(size,16))
+        a=0
+        b=0
+        c=0
+        for c in rawdata:
+           if(c<=31 or c==127):
+              a=a+1
+           elif(c<=57 or c>=48):
+              b=b+1
+           else:
+              c=c+1
+        return [c,a,b]
         mm.close()
         
 
