@@ -15,23 +15,26 @@ class Module:
         self.base = base
         self.size = size
         self.pages = []    
+        self.hmpages = [] 
         #252
 
     def add_pages(self,pid):
-        print(pid+" "+self.base)
+        #print(pid+" "+self.base)
         memmap=pandas.read_fwf(co.output_location+"\memmap_"+pid+".info",widths=[18,18,18,18])
         virtual_address=memmap.ix[:,0]
         physical_address=memmap.ix[:,1]
         #page_size=memmap.ix[:,2].replace(" ", "")
         #print(virtual_address)
         page=bi.index(virtual_address,self.base)
-        print(page)
-       # print(virtual_address[page])
+  
         if(page != -1):
             while int(virtual_address[page],16)<=int(self.base,16)+int(self.size,16):
-                statistics=mapping.slicing(physical_address[page],'0x1000')
-                newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2])
-                self.pages.append(virtual_address[page])
-                print(virtual_address[page]+"Added!")
+                #MHDCODE
+                #statistics=mapping.slicing(physical_address[page],'0x1000')
+                #newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2])
+                newPage=pg.Page(virtual_address[page],"1","2","3")
+                self.pages.append(newPage)
+                #self.pages.append(virtual_address[page])
+                #print(virtual_address[page]+"Added!")
                 page=page+1
-           # time.sleep(5)
+        #time.sleep(5)

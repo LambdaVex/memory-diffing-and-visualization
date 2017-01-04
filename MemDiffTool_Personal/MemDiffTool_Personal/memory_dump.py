@@ -47,6 +47,7 @@ class MemoryDump:
     #all IDs
     def cashing_of_pages(self):
         for i in self.processes:
+            print("Process: "+i.pid+" under process")
             for j in i.modules:
                 j.add_pages(i.pid)
         print("Modules cashing (2/2) done!")
