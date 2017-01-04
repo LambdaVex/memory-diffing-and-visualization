@@ -21,9 +21,9 @@ dump1.cashing_of_modules()
 
 ######## Cash the pages of each module
 #dump1.vol_memmap() #Uncomment for New Dumps
-dump1.cashing_of_pages()
+#dump1.cashing_of_pages()
 
-xmlb.build_file(dump1)
+#xmlb.build_file(dump1)
 xmlp.prase()
 
 print("--- %s seconds ---" % (time.time() - start_time))

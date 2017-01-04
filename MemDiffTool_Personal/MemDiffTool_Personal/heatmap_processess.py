@@ -70,7 +70,7 @@ def display_processheatmap(heatmap_dump):
     #    Sum=Sum+len(heatmap_dump.processes[p].modules)
     #print(len(heatmap_dump.processes))
     #time.sleep(7)
-    for p in range(0,20):
+    for p in range(0,5):
         module_index=0
         for m in heatmap_dump.processes[p].modules: # Names of modules
             ind=m.name+"_"+heatmap_dump.processes[p].pid
@@ -120,7 +120,7 @@ def display_processheatmap(heatmap_dump):
     # 1400 for 0 -> 13
     p = figure(title="Memory Info",
                x_range=Steps, y_range=list(reversed(modules)),
-               x_axis_location="above", plot_width=20000, plot_height=4000,
+               x_axis_location="above", plot_width=20000, plot_height=1500,
                tools=TOOLS,toolbar_location="above")
 
     p.grid.grid_line_color = None

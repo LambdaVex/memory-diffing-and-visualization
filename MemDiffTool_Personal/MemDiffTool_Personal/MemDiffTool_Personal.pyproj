@@ -35,13 +35,10 @@
     <Compile Include="convertModule.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ex.py">
+    <Compile Include="heatmap_process.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ex1.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="heatmap.py">
+    <Compile Include="heatmap_processess.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="mapping.py" />
@@ -50,9 +47,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="memory_dump.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="mmapOP.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="memdiff_process.py">
@@ -73,10 +67,13 @@
     <Compile Include="read_convert_dump.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TEMP.py">
+    <Compile Include="volatilityInteraction.py" />
+    <Compile Include="xml_builder.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="volatilityInteraction.py" />
+    <Compile Include="xml_parser.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="histogram.py">
