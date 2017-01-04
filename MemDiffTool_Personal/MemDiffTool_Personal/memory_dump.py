@@ -44,11 +44,18 @@ class MemoryDump:
         print("Modules cashing (1/2) done!")
 
     ######## Processing Pages
+    #all IDs
     def cashing_of_pages(self):
         for i in self.processes:
             for j in i.modules:
                 j.add_pages(i.pid)
         print("Modules cashing (2/2) done!")
+
+    #single ID  
+    def cashing_of_pid_pages(self,process):
+        for i in process.modules:
+            i.add_pages(process.pid)
+        print("Modules cashing (2/2) done!") 
 
     def vol_memmap(self):
         for i in self.processes:
@@ -57,3 +64,9 @@ class MemoryDump:
             subprocess.call(Command,stdout=f)
             print("memmap for PID:"+str(i.pid)+" is done!")
         print("Pages cashing (1/2) done!")
+
+
+    ######## Output
+    def show_modules_in_processes(self):
+        for i in self.processes:
+            print("Process "+i.name+" has "+str(len(i.modules))+" modules")
