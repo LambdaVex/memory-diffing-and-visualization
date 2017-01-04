@@ -1,5 +1,6 @@
 import mmap
 import configuration as co
+import entropy
 
 start=0x0
 size=0x0
@@ -30,14 +31,18 @@ def slicing(start, size):
         a=0
         b=0
         c=0
+        rawdata_S=''
         for c in rawdata:
+           rawdata_S=rawdata_S+str(c)
            if(c<=31 or c==127):
               a=a+1
            elif(c<=57 or c>=48):
               b=b+1
            else:
               c=c+1
-        return [c,a,b]
+        e=entropy.entropy_c(rawdata_S)
+        #print("the entropy is={0}".format(e))
+        return [c,a,b,e]
         mm.close()
         
 

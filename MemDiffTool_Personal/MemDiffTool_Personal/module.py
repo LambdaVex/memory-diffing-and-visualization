@@ -30,10 +30,9 @@ class Module:
         if(page != -1):
             while int(virtual_address[page],16)<=int(self.base,16)+int(self.size,16):
                 #MHDCODE
-                #statistics=mapping.slicing(physical_address[page],'0x1000')
+                statistics=mapping.slicing(physical_address[page],'0x1000')
                 #newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2])
-                #here
-                newPage=pg.Page(virtual_address[page],"1","2","3","4")
+                newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2],statistics[3])
                 self.pages.append(newPage)
                 #self.pages.append(virtual_address[page])
                 #print(virtual_address[page]+"Added!")

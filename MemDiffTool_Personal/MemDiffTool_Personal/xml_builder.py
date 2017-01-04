@@ -9,7 +9,7 @@ def build_file(dump1):
         for j in i.modules:
             Child=ET.SubElement(Node, 'Mod', name=j.name,base =  j.base,size=j.size )
             for k in j.pages:
-                Kid=ET.SubElement(Child, 'PG')
+                Kid=ET.SubElement(Child, 'PG',Asci=k.print_Ascci,NAsci=k.non_print_Ascci,Num=k.print_Ascci_Num,Ent=k.entropy)
                 Kid.text = k.address
    
     tree = ET.ElementTree(data)
