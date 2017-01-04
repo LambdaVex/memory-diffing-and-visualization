@@ -32,7 +32,8 @@ class Module:
                 #MHDCODE
                 #statistics=mapping.slicing(physical_address[page],'0x1000')
                 #newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2])
-                newPage=pg.Page(virtual_address[page],"1","2","3")
+                #here
+                newPage=pg.Page(virtual_address[page],"1","2","3","4")
                 self.pages.append(newPage)
                 #self.pages.append(virtual_address[page])
                 #print(virtual_address[page]+"Added!")
