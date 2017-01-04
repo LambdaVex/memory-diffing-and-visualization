@@ -5,6 +5,7 @@ from bisect import *
 from pandas import DataFrame
 import time
 import os
+import xml_builder as xmlb
 
 start_time = time.time()
 ######## Initialize the Dump file
@@ -22,6 +23,7 @@ dump1.cashing_of_modules()
 #dump1.vol_memmap() #Uncomment for New Dumps
 dump1.cashing_of_pages()
 
+xmlb.build_file(dump1)
 
 print("--- %s seconds ---" % (time.time() - start_time))
 
