@@ -6,7 +6,7 @@ from pandas import DataFrame
 import time
 import os
 import xml_builder as xmlb
-
+import xml_parser as xmlp
 start_time = time.time()
 ######## Initialize the Dump file
 dump1 = md.MemoryDump(co.dump_memory_location)
@@ -24,6 +24,7 @@ dump1.cashing_of_modules()
 dump1.cashing_of_pages()
 
 xmlb.build_file(dump1)
+xmlp.prase()
 
 print("--- %s seconds ---" % (time.time() - start_time))
 
