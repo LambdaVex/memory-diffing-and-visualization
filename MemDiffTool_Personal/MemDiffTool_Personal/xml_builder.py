@@ -9,8 +9,10 @@ def build_file(dump1):
         for j in i.modules:
             Child=ET.SubElement(Node, 'Mod', name=j.name,base =  j.base,size=j.size )
             for k in j.pages:
-                Kid=ET.SubElement(Child, 'PG',Asci=k.print_Ascci,NAsci=k.non_print_Ascci,Num=k.print_Ascci_Num,Ent=k.entropy)
+                Kid=ET.SubElement(Child, 'PG',Asci=str(k.print_Ascci),NAsci=str(k.non_print_Ascci),Num=str(k.print_Ascci_Num),Ent=str(round(k.entropy)))
+                #print("Child, 'PG', Asci={0} ,NAsci={1} , Num={2} , Ent={3}".format(k.print_Ascci,k.non_print_Ascci,k.print_Ascci_Num,int(k.entropy)))
                 Kid.text = k.address
-   
+                #round
     tree = ET.ElementTree(data)
-    tree.write("testxml.xml")
+    #remove the dump.start when removing threading and write only tree.write(name)
+    tree.write("testxml_withthread_number_"+dump1.start+".xml")
