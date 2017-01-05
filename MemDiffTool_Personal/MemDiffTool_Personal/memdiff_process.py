@@ -26,7 +26,6 @@ def seq(start):
 if __name__ == '__main__':
         
         start_time_for_all = time.time()
-        print("good")
         pool = multiprocessing.Pool(3) 
         pool.map(seq, ['1','14','27'])
         print("--- %s seconds_for_the_whole_program ---" % (time.time() - start_time_for_all))
