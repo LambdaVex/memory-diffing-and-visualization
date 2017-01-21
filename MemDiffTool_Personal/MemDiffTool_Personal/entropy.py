@@ -13,7 +13,7 @@ def H(data, iterator=range_bytes):
     return entropy
 
 def entropy_c(data):
-    return (H(data, range_printable))
+    return (H(data, range_bytes))
 
 
 
