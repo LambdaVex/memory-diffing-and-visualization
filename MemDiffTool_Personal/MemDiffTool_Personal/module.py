@@ -10,7 +10,7 @@ import page as pg
 import mapping
 class Module:
 
-    def __init__(self, name, base, size,memory_used_by_pages):
+    def __init__(self, name, base, size):
         self.name = name
         self.base = base
         self.size = size
@@ -21,13 +21,13 @@ class Module:
 
     def add_pages(self,pid):
         #print(pid+" "+self.base)
-        memmap=pandas.read_fwf(co.output_location+"\memmap_"+pid+".info",width=[18,18,18,18])
+        memmap=pandas.read_fwf(co.output_location+"\memmap_"+pid+".info",colspecs=[(0,18),(19,37),(38,56),(57,75)])
         virtual_address=memmap.ix[:,0]
         physical_address=memmap.ix[:,1]
         #the size of memory used
-        sizes=memmap.ix[:,2]
+        #sizes=memmap.ix[:,2]
         #the sum of pages sizes
-        self.memory_used_by_pages=sum(int(i,16) for i in sizes[2:])
+        #self.memory_used_by_pages=sum(int(i,16) for i in sizes[2:])
         #page_size=memmap.ix[:,2].replace(" ", "")
         #print(virtual_address)
         page=bi.index(virtual_address,self.base)
@@ -37,7 +37,7 @@ class Module:
                 #MHDCODE
                 statistics=mapping.slicing(physical_address[page],'0x1000')
                 #newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2])
-                newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2],statistics[3],sum_sizes)
+                newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2],statistics[3])
                 self.pages.append(newPage)
                 #self.pages.append(virtual_address[page])
                 #print(virtual_address[page]+"Added!")

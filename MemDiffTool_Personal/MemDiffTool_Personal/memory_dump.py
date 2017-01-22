@@ -9,6 +9,8 @@ import process as pr
 import module as md
 class MemoryDump:
 
+    #to remove threading uncomment the line below and comment the one below it
+    #def __init__(self, path):
     def __init__(self, path,start):
         self.path = path
         self.processesCount = 0
@@ -19,6 +21,7 @@ class MemoryDump:
     def cashing_of_processes(self):
         list_of_processes=pandas.read_fwf(co.output_location+"\pslist.info")
         #change the range to 1,len(processes) to remove threading
+        #for i in range(1,len(list_of_processes)):
         for i in range(int(self.start),int(self.start)+13):
             process=pr.Process(list_of_processes.iloc[i,1],list_of_processes.iloc[i,2])
             self.processes.append(process)

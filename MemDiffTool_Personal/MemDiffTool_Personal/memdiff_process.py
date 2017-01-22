@@ -30,8 +30,10 @@ if __name__ == '__main__':
         pool.map(seq, ['1','14','27'])
         print("--- %s seconds_for_the_whole_program ---" % (time.time() - start_time_for_all))
 
+#to remove threading only run the code below
 #below is the flow without threading
 """
+
 start_time = time.time()
 ######## Initialize the Dump file
 dump1 = md.MemoryDump(co.dump_memory_location)
@@ -47,9 +49,8 @@ dump1.cashing_of_pages()
 
 xmlb.build_file(dump1)
 #xmlp.prase()
+
 """
-
-
 
 
 

@@ -8,13 +8,21 @@ import module as md
 
 class Process:
 
-    def __init__(self, name, pid, memory_used_by_modules):
+    def __init__(self, name, pid):
         self.name = name
         self.pid = pid
         self.memory_used_by_modules=0
+        self.memory_used_by_pages=0
         self.modules = []    
     
     def add_modules(self):
+        #this section to calculate the memory used by pages for a certain process
+        memmap=pandas.read_fwf(co.output_location+"\memmap_"+self.pid+".info",colspecs=[(0,18),(19,37),(38,56),(57,75)])
+        #the size of memory used
+        sizes=memmap.ix[:,2]
+        #the sum of pages sizes
+        self.memory_used_by_pages=sum(int(i,16) for i in sizes[2:])
+
         process="dlllist_"+str(self.pid)+".info"
         dlllist=pandas.read_fwf(co.output_location+"\\"+process)
 
