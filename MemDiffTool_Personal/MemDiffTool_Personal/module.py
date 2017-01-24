@@ -25,7 +25,7 @@ class Module:
         virtual_address=memmap.ix[:,0]
         physical_address=memmap.ix[:,1]
         #the size of memory used
-        #sizes=memmap.ix[:,2]
+        sizes=memmap.ix[:,2]
         #the sum of pages sizes
         #self.memory_used_by_pages=sum(int(i,16) for i in sizes[2:])
         #page_size=memmap.ix[:,2].replace(" ", "")
@@ -35,7 +35,7 @@ class Module:
         if(page != -1):
             while int(virtual_address[page],16)<=int(self.base,16)+int(self.size,16):
                 #MHDCODE
-                statistics=mapping.slicing(physical_address[page],'0x1000')
+                statistics=mapping.slicing(physical_address[page],sizes[page])
                 #newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2])
                 newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2],statistics[3])
                 self.pages.append(newPage)

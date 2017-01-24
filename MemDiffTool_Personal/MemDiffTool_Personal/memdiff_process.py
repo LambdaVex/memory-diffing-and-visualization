@@ -9,7 +9,7 @@ import xml_builder as xmlb
 import xml_parser as xmlp
 from multiprocessing import Process
 import multiprocessing
-
+"""
 def seq(start):
     start_time = time.time()
     ######## Initialize the Dump file
@@ -24,11 +24,12 @@ def seq(start):
     print("--- %s seconds for a thread ---" % (time.time() - start_time))
 
 if __name__ == '__main__':
-        
         start_time_for_all = time.time()
         pool = multiprocessing.Pool(3) 
         pool.map(seq, ['1','14','27'])
         print("--- %s seconds_for_the_whole_program ---" % (time.time() - start_time_for_all))
+        xmlb.combine_xml(['testxml_withthread_number_1.xml','testxml_withthread_number_14.xml','testxml_withthread_number_27.xml'])
+        print("Final Xml file is ready")
 
 #to remove threading only run the code below
 #below is the flow without threading
@@ -50,7 +51,7 @@ dump1.cashing_of_pages()
 xmlb.build_file(dump1)
 #xmlp.prase()
 
-"""
+
 
 
 
