@@ -9,14 +9,14 @@ def build_file(dump1):
         for j in i.modules:
             Child=ET.SubElement(Node, 'Mod', name=j.name,base =  j.base,size=j.size)
             for k in j.pages:
-                Kid=ET.SubElement(Child, 'PG',Asci=str(k.print_Ascci),NAsci=str(k.non_print_Ascci),Num=str(k.print_Ascci_Num),Ent=str(k.entropy))
+                Kid=ET.SubElement(Child, 'PG',Asci=str(k.print_Ascci),NAsci=str(k.non_print_Ascci),Num=str(k.print_Ascci_Num),Ent=str(k.entropy),Size=str(k.size))
                 #print("Child, 'PG', Asci={0} ,NAsci={1} , Num={2} , Ent={3}".format(k.print_Ascci,k.non_print_Ascci,k.print_Ascci_Num,int(k.entropy)))
                 Kid.text = k.address
                 #round
     tree = ET.ElementTree(data)
     #to remove threading uncomment the line below and comment the one below it
-    tree.write("testxml.xml")
-    #tree.write("testxml_withthread_number_"+dump1.start+".xml")
+    #tree.write("testxml.xml")
+    tree.write("testxml_withthread_number_"+dump1.start+".xml")
     
 def combine_xml(files):
     first = None

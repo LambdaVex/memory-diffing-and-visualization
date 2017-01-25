@@ -9,7 +9,7 @@ import xml_builder as xmlb
 import xml_parser as xmlp
 from multiprocessing import Process
 import multiprocessing
-"""
+
 def seq(start):
     start_time = time.time()
     ######## Initialize the Dump file
@@ -51,7 +51,7 @@ dump1.cashing_of_pages()
 xmlb.build_file(dump1)
 #xmlp.prase()
 
-
+"""
 
 
 
