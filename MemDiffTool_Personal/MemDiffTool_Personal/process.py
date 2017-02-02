@@ -14,7 +14,8 @@ class Process:
         self.memory_used_by_modules=0
         self.memory_used_by_pages=0
         self.modules = []    
-    
+        self.summodules = []
+
     def add_modules(self):
         #this section to calculate the memory used by pages for a certain process
         memmap=pandas.read_fwf(co.output_location+"\memmap_"+self.pid+".info",colspecs=[(0,18),(19,37),(38,56),(57,75)])
