@@ -53,9 +53,10 @@ def parse(heatmap_dump,filename):
             heatmap_dump.processes[i].modules.append(module)
             for k in range(0,len(root[i][j])):
                 #print("----------------{0}".format(root[i][j][k].text))
-                tpage=pge.Page(root[i][j][k].text,root[i][j][k].attrib['Asci'],root[i][j][k].attrib['NAsci'],root[i][j][k].attrib['Num'],root[i][j][k].attrib['Ent'])
+                tpage=pge.Page(root[i][j][k].text,root[i][j][k].attrib['Asci'],root[i][j][k].attrib['NAsci'],root[i][j][k].attrib['Num'],root[i][j][k].attrib['Ent'],root[i][j][k].attrib['Size'])
+                
                 heatmap_dump.processes[i].modules[j].pages.append(tpage)
- 
+    return heatmap_dump
 def truncate(f, n):
     '''Truncates/pads a float f to n decimal places without rounding'''
     s = '{}'.format(f)
@@ -69,14 +70,12 @@ if __name__ == '__main__':
    #print("ENTER")
     #heatmap_dump=prase()
 
-
-
-
     heatmap_dump=md.MemoryDump("heatmap",'0')
 
-    filename_1="Complete_XML.xml"
-    filename_2="testxml_withthread_number_14.xml"
-    filename_3="testxml_withthread_number_27.xml"
+    #filename_1="Complete_XML.xml"
+    filename_1="MemDump.xml"
+    #filename_2="testxml_withthread_number_14.xml"
+    #filename_3="testxml_withthread_number_27.xml"
 
     heatmap_dump=parse(heatmap_dump,filename_1)
 
@@ -89,7 +88,7 @@ if __name__ == '__main__':
         for mod in range(1,len(pr.modules)):
             list_modules.append(pr.modules[mod])
     
-    
+ 
     list_modules.sort(key = lambda x: x.base)
     list_modules=list(tz.unique(list_modules, key=lambda x: x.name))
 
