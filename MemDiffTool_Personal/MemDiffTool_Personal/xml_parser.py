@@ -1,4 +1,8 @@
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
+from math import pi
+from bokeh.io import output_file, show, vplot
+from bokeh.models import ColumnDataSource, HoverTool, LinearColorMapper
+from bokeh.plotting import figure
 import xml.etree.ElementTree as ET
 import memory_dump as md
 import process as pr
@@ -6,17 +10,9 @@ import module as mod
 import page as pge
 import time
 import heatmap_processess as phmap
-from math import pi
-from bokeh.io import output_file, show, vplot
-from bokeh.models import ColumnDataSource, HoverTool, LinearColorMapper
-from bokeh.plotting import figure
 import pandas as pd
 import numpy as NP
 import bokeh.palettes as bp
-import configuration as co
-import time
-import memory_dump as md
-import page as pg
 import configuration as co
 import heatmap_processess as phmap
 import heatmap_MemoryDump as memmap
