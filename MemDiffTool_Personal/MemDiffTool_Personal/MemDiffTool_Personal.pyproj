@@ -35,10 +35,16 @@
     <Compile Include="convertModule.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="heatmap_MemoryDump.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="heatmap_process.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="heatmap_processess.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="heatmap_summary.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="mapping.py" />
