@@ -14,7 +14,6 @@ class MemoryDump:
         self.path = path
         self.processesCount = 0
         self.processes = []    
-        self.start=start
    
     ######## Processing Processes      
     def cashing_of_processes(self):
