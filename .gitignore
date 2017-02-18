@@ -136,12 +136,12 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
-MemDiffTool_Personal/MemDiffTool_Personal/configuration.py
-MemDiffTool_Personal/MemDiffTool_Personal/Configuration.py
-./MemDiffTool_Personal/MemDiffTool_Personal/configuration.py
-./MemDiffTool_Personal/MemDiffTool_Personal/Configuration.py
-.MemDiffTool_Personal/MemDiffTool_Personal/configuration.py
-.MemDiffTool_Personal/MemDiffTool_Personal/Configuration.py
+MemDiffTool_Personal/MemDiffTool_Personal/WithoutThreading/configuration.py
+MemDiffTool_Personal/MemDiffTool_Personal/WithThreading/configuration.py
+./MemDiffTool_Personal/MemDiffTool_Personal/WithoutThreading/configuration.py
+./MemDiffTool_Personal/MemDiffTool_Personal/WithThreading/configuration.py
+.MemDiffTool_Personal/MemDiffTool_Personal/WithoutThreading/configuration.py
+.MemDiffTool_Personal/MemDiffTool_Personal/WithThreading/configuration.py
 # Click-Once directory
 publish/
 
