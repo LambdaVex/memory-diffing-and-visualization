@@ -30,14 +30,18 @@ class Process:
         if(len(dlllist)>2):
             for i in range(4,len(dlllist)):     
                 line = dlllist.iloc[i,0]
+                #print(line)
                 data = line.split() #split string into a list
+                #print(data)
                 # Add check because sometimes the path is empty
                 if len(data) > 3:
                     name=os.path.basename(os.path.normpath(data[3]))
                     if(name != "----" and name != "Path"):
-                        module=md.Module(os.path.basename(os.path.normpath(data[3])) if len(data) > 3 else "n/a",data[0],data[1])
+                        # A fix for the bug when the data is not in the last index of data 
+                        module=md.Module(os.path.basename(os.path.normpath(data[len(data)-1])) if len(data) > 3 else "n/a",data[0],data[1])
                         #sum the number of memory used by the Dlls  
-                        self.memory_used_by_modules=self.memory_used_by_modules+ int(data[1],16)    
+                        self.memory_used_by_modules=self.memory_used_by_modules+ int(data[1],16)  
+                        #print(module.name)
                         self.modules.append(module)
                 else:
                     module=md.Module("n/a",data[0],data[1])       

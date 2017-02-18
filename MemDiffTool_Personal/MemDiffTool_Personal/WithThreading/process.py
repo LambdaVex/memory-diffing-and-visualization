@@ -35,7 +35,7 @@ class Process:
                 if len(data) > 3:
                     name=os.path.basename(os.path.normpath(data[3]))
                     if(name != "----" and name != "Path"):
-                        module=md.Module(os.path.basename(os.path.normpath(data[3])) if len(data) > 3 else "n/a",data[0],data[1])
+                        module=md.Module(os.path.basename(os.path.normpath(data[len(data)-1])) if len(data) > 3 else "n/a",data[0],data[1])
                         #sum the number of memory used by the Dlls  
                         self.memory_used_by_modules=self.memory_used_by_modules+ int(data[1],16)    
                         self.modules.append(module)
