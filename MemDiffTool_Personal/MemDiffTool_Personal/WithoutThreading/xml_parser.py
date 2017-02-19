@@ -73,7 +73,7 @@ if __name__ == '__main__':
     heatmap_dump=md.MemoryDump("heatmap")
 
     #filename_1="Complete_XML.xml"
-    filename_1="Resources/MemDump.xml"
+    filename_1="Resources/dumMem.xml"
     #filename_2="testxml_withthread_number_14.xml"
     #filename_3="testxml_withthread_number_27.xml"
    
@@ -86,12 +86,13 @@ if __name__ == '__main__':
     #Omit the first one
     for pr in heatmap_dump.processes:
         for mod in range(1,len(pr.modules)):
+            pr.modules[mod].name=pr.modules[mod].name.lower
             list_modules.append(pr.modules[mod])
     
- 
+    
     list_modules.sort(key = lambda x: x.base)
-    list_modules=list(tz.unique(list_modules, key=lambda x: x.name))
-
+    #list_modules=list(tz.unique(list_modules, key=lambda x: x.name))
+    print(len(list_modules))
 
     # THIS IS THE FIRST WAY TO DO IT, REMEMBER BY DECLARING EVERY MODULE FOR EVERY PROCESS 
     '''
@@ -111,6 +112,9 @@ if __name__ == '__main__':
         #time.sleep(5)
     '''
         #print(heatmap_dump.processes[1].summodules)
+    ListOfPages= [[] for i in range(len(list_modules))]
+    L=[[],[],[]]
+
     for pr in heatmap_dump.processes:
         pr.summodules=[0]*len(list_modules)
         #print(len(list_modules))
@@ -122,12 +126,63 @@ if __name__ == '__main__':
                counter=counter+1
                #print("module: "+mod.name+" has " +str(len(mod.pages)) +" pages and size of " + str(int(mod.size,0)))
                #time.sleep(5)
+               # How many pages percent %
+
                pr.summodules[index]= len(mod.pages)*4096/int(mod.size,0) #Here you should sum all sizes 
+               ListOfPages[index].extend(mod.pages)
+               #ListOfPages[index]=(mod.pages)
+               #print(ListOfPages)
+               #print(ListOfPages[index][0].address)
+
                #print(str(pr.summodules[index])+" len: "+str(len(str(pr.summodules[index]))) )
                if(len(str(pr.summodules[index]))>4):
                    pr.summodules[index]=float(str(pr.summodules[index])[:6])*100
                #print(pr.summodules[index])
                #time.sleep(2)
+        #print(len(ListOfPages))
+
+    #duplicates
+    #for item in ListOfPages:
+        #item=list(tz.unique(item, key=lambda x: x.address))
+
+    for item in list_modules:
+        print(item.name)
+    for item in list_modules:
+        print(item.base)
+    time.sleep(5)
+    for i in range(0,len(ListOfPages)):
+        ListOfPages[i]=list(tz.unique(ListOfPages[i], key=lambda x: x.address))
+
+    '''
+    for item in ListOfPages[283]:
+        print(item.address)
+    '''
+
+    for pr in heatmap_dump.processes:
+        for mod in pr.modules:
+            index=get_index(list_modules,mod.name)
+            flag="NO"
+            if(index!=-1):
+                if(int(mod.size,0)>=len(ListOfPages[index])*4096):
+                    flag="YES"
+                else:
+                    print(mod.name+"-"+str(int(mod.size,0))+" - "+str(len(ListOfPages[index])*4096)+" "+flag+" "+str(index))
+
+
+    #for item in ListOfPages[6]:
+    #    print(item.address)
+    #
+    print("process")
+    #for item in ListOfPages[6]:
+    #    print(item.address)
+
+
+    #print(ListOfPages[index][0].address)
+    print("PAUSING")
+    time.sleep(5)
+
+
+
     memmap.display_summaryheatmap(heatmap_dump,list_modules)
 
  

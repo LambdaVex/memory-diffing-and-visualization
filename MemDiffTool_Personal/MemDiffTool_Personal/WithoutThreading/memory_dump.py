@@ -25,6 +25,13 @@ class MemoryDump:
         self.processesCount=len(self.processes)
         print("Processes cashing (2/2) done!")
     
+    def invoking_pid_of_processes(self):
+        list_pr=[]
+        list_of_processes=pandas.read_fwf(co.output_location+"\pslist.info")
+        for i in range(1,len(list_of_processes)):
+            list_pr.append(list_of_processes.iloc[i,2])
+        return list_pr
+
     def vol_pslist(self):
         f = open(co.output_location+"\pslist.info", "w")
         Command=co.volatility_standalone_location+" -f "+co.dump_memory_location+" --profile=Win7SP1x64 pslist"
@@ -45,6 +52,13 @@ class MemoryDump:
             print("dlllist for PID:"+str(i.pid)+" is done!")
         print("Modules cashing (1/2) done!")
 
+    def invoke_vol_dlllist(self,Prs):
+        for i in Prs:
+            f = open(co.output_location+"\dlllist"+"_"+str(i)+".info", "w")
+            Command=co.volatility_standalone_location+" -f "+co.dump_memory_location+" --profile=Win7SP1x64 dlllist -p " + str(i)
+            subprocess.call(Command,stdout=f)
+            print("dlllist for PID:"+str(i)+" is done!")
+        print("Modules cashing (1/2) done!")
     ######## Processing Pages
     #all IDs
     def cashing_of_pages(self):
@@ -68,7 +82,13 @@ class MemoryDump:
             print("memmap for PID:"+str(i.pid)+" is done!")
         print("Pages cashing (1/2) done!")
 
-
+    def invoke_vol_memmap(self,Prs):
+        for i in Prs:
+            f = open(co.output_location+"\memmap"+"_"+str(i)+".info", "w")
+            Command=co.volatility_standalone_location+" -f "+co.dump_memory_location+" --profile=Win7SP1x64 memmap -p " + str(i)
+            subprocess.call(Command,stdout=f)
+            print("memmap for PID:"+str(i)+" is done!")
+        print("Pages cashing (1/2) done!")
     ######## Output
     def show_modules_in_processes(self):
         for i in self.processes:
