@@ -73,7 +73,7 @@ if __name__ == '__main__':
     heatmap_dump=md.MemoryDump("heatmap")
 
     #filename_1="Complete_XML.xml"
-    filename_1="Resources/MemDump.xml"
+    filename_1="Resources/dumMem.xml"
     #filename_2="testxml_withthread_number_14.xml"
     #filename_3="testxml_withthread_number_27.xml"
    
@@ -86,12 +86,13 @@ if __name__ == '__main__':
     #Omit the first one
     for pr in heatmap_dump.processes:
         for mod in range(1,len(pr.modules)):
+            pr.modules[mod].name=pr.modules[mod].name.lower
             list_modules.append(pr.modules[mod])
     
- 
+    
     list_modules.sort(key = lambda x: x.base)
-    list_modules=list(tz.unique(list_modules, key=lambda x: x.name))
-
+    #list_modules=list(tz.unique(list_modules, key=lambda x: x.name))
+    print(len(list_modules))
 
     # THIS IS THE FIRST WAY TO DO IT, REMEMBER BY DECLARING EVERY MODULE FOR EVERY PROCESS 
     '''
