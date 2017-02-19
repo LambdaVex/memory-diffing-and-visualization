@@ -35,6 +35,7 @@ class Process:
                 #print(data)
                 # Add check because sometimes the path is empty
                 if len(data) > 3:
+                    os.posixpath 
                     name=os.path.basename(os.path.normpath(data[3]))
                     if(name != "----" and name != "Path"):
                         # A fix for the bug when the data is not in the last index of data 
