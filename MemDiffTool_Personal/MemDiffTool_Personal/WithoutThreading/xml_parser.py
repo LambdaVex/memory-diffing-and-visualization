@@ -70,13 +70,13 @@ if __name__ == '__main__':
    #print("ENTER")
     #heatmap_dump=prase()
 
-    heatmap_dump=md.MemoryDump("heatmap",'0')
+    heatmap_dump=md.MemoryDump("heatmap")
 
     #filename_1="Complete_XML.xml"
-    filename_1="MemDump.xml"
+    filename_1="Resources/MemDump.xml"
     #filename_2="testxml_withthread_number_14.xml"
     #filename_3="testxml_withthread_number_27.xml"
-
+   
     heatmap_dump=parse(heatmap_dump,filename_1)
 
     list_modules=[]
