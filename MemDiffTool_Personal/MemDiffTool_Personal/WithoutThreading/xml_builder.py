@@ -5,6 +5,7 @@ import os
 def build_file(dump1):
     data = ET.Element("dump")
     for i in dump1.processes:
+        #to get rid of divide by zero error
         if(i.memory_used_by_modules==0):
                 x='XXX'
         else:
