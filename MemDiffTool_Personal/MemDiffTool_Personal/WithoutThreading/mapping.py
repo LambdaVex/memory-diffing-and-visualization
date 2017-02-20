@@ -1,6 +1,7 @@
 import mmap
 import configuration as co
 import entropy
+import hashlib
 
 start=0x0
 size=0x0
@@ -39,8 +40,9 @@ def slicing(start, size):
            else:
               c=c+1
         e=entropy.entropy_c(rawdata)
+        hash=hashlib.sha224(rawdata).hexdigest()
         #print("the entropy is={0}".format(e))
-        return [c,a,b,e]
+        return [c,a,b,e,hash]
         mm.close()
         
 

@@ -5,6 +5,7 @@ import configuration as co
 from bisect import *
 from pandas import DataFrame
 import module as md
+import bisect_module as bi
 
 class Process:
 
@@ -21,8 +22,17 @@ class Process:
         memmap=pandas.read_fwf(co.output_location+"\memmap_"+self.pid+".info",colspecs=[(0,18),(19,37),(38,56),(57,75)])
         #the size of memory used
         sizes=memmap.ix[:,2]
-        #the sum of pages sizes
-        self.memory_used_by_pages=sum(int(i,16) for i in sizes[2:])
+        virtual=memmap.ix[:,0]
+        #dicard the first two lines
+        virtual=virtual[2:]
+        sizes=sizes[2:]
+        #first index of core adresse 
+        for i in virtual:
+            if(int(i,16)>int('0x000007ff00000000',16)):
+                jump=bi.index(virtual,i)
+                break;
+        #the sum of pages sizes till the jump minus the first two line discarded
+        self.memory_used_by_pages=sum(int(i,16) for i in sizes[:jump])
 
         process="dlllist_"+str(self.pid)+".info"
         dlllist=pandas.read_fwf(co.output_location+"\\"+process)
@@ -35,7 +45,7 @@ class Process:
                 #print(data)
                 # Add check because sometimes the path is empty
                 if len(data) > 3:
-                    os.posixpath 
+                    #os.posixpath 
                     name=os.path.basename(os.path.normpath(data[3]))
                     if(name != "----" and name != "Path"):
                         # A fix for the bug when the data is not in the last index of data 
