@@ -14,7 +14,7 @@ def build_file(dump1):
         for j in i.modules:
             Child=ET.SubElement(Node, 'Mod', name=j.name,base =  j.base,size=j.size)
             for k in j.pages:
-                Kid=ET.SubElement(Child, 'PG',Asci=str(k.print_Ascci),NAsci=str(k.non_print_Ascci),Num=str(k.print_Ascci_Num),Ent=str(k.entropy),Size=str(k.size),Hash=str(k.hash))
+                Kid=ET.SubElement(Child, 'PG',Asci=str(k.print_Ascci),NAsci=str(k.non_print_Ascci),Num=str(k.print_Ascci_Num),Ent=str(k.entropy),Size=str(k.size),Hash=str(k.hash),RelativeOffset=str(hex(int(k.address,16)-int(j.base,16))))
                 #print("Child, 'PG', Asci={0} ,NAsci={1} , Num={2} , Ent={3}".format(k.print_Ascci,k.non_print_Ascci,k.print_Ascci_Num,int(k.entropy)))
                 Kid.text = k.address
                 #round
