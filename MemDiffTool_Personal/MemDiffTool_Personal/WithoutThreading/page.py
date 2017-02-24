@@ -8,7 +8,7 @@ import bisect_module as bi
 import time
 class Page:
 
-    def __init__(self, address, print_Ascci,non_print_Ascci,print_Ascci_Num,entropy,size,hash):
+    def __init__(self, address, print_Ascci,non_print_Ascci,print_Ascci_Num,entropy,size,hash,rlOffset):
         self.address = address
         self.print_Ascci = print_Ascci
         self.non_print_Ascci = non_print_Ascci
@@ -16,3 +16,4 @@ class Page:
         self.entropy = entropy
         self.size=size
         self.hash=hash
+        self.rlOffset=rlOffset
