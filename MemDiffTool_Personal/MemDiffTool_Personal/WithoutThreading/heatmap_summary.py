@@ -10,8 +10,8 @@ import time
 import memory_dump as md
 import page as pg
 
-def display_summaryhp(dumpM,listM,Summary_List):
-    print(Summary_List)
+def display_summaryhp(dumpM,listM,SummaryList):
+    #print(Summary_List)
     time.sleep(5)
     # define processes on Y-Axis
     processes=["Summary"]
@@ -32,7 +32,7 @@ def display_summaryhp(dumpM,listM,Summary_List):
             step.append(mod.name)
             base_address.append(mod.base)
             process.append(proc)
-            module.append(Summary_List[module_index])
+            module.append(SummaryList[module_index])
             process_val.append(1)
             '''
             if(proc.summodules[module_index]==0):
@@ -55,7 +55,8 @@ def display_summaryhp(dumpM,listM,Summary_List):
     #p.min_border_left = 80
     #p.min_border_bottom = 80
     p.min_border_right = 10
-    p.logo = None
+
+    p.toolbar.logo = None
     p.toolbar_location = None
 
 
@@ -79,7 +80,7 @@ def display_summaryhp(dumpM,listM,Summary_List):
 
     # info to display on hover
     p.select_one(HoverTool).tooltips = [
-        ('Process / PID', '@process'),
+      #  ('Process / PID', '@process'),
         ('Module', '@step'),
         ('Address', '@base_address'),  
         ('Value', '@module'),

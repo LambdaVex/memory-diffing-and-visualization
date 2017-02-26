@@ -53,7 +53,7 @@ def parse(heatmap_dump,filename):
             heatmap_dump.processes[i].modules.append(module)
             for k in range(0,len(root[i][j])):
                 #print("----------------{0}".format(root[i][j][k].text))
-                tpage=pge.Page(root[i][j][k].text,root[i][j][k].attrib['Asci'],root[i][j][k].attrib['NAsci'],root[i][j][k].attrib['Num'],root[i][j][k].attrib['Ent'],root[i][j][k].attrib['Size'],root[i][j][k].attrib['RelativeOffset'])
+                tpage=pge.Page(root[i][j][k].text,root[i][j][k].attrib['Asci'],root[i][j][k].attrib['NAsci'],root[i][j][k].attrib['Num'],root[i][j][k].attrib['Ent'],root[i][j][k].attrib['Size'],root[i][j][k].attrib['Hash'],root[i][j][k].attrib['RelativeOffset'])
                 
                 heatmap_dump.processes[i].modules[j].pages.append(tpage)
     return heatmap_dump
@@ -93,10 +93,11 @@ if __name__ == '__main__':
     list_modules.sort(key = lambda x: x.base)
     list_modules=list(tz.unique(list_modules, key=lambda x: x.name))
     #print(len(list_modules))
-
-
+    #print("PAUSE")
+    #time.sleep(5)
         #print(heatmap_dump.processes[1].summodules)
-    ListOfPages= [[] for i in range(len(list_modules))]
+    #ListOfPages= [[] for i in range(len(list_modules))]
+    ListOfobsoletePages= [[] for i in range(len(list_modules))]
     #L=[[],[],[]]
 
     for pr in heatmap_dump.processes:
@@ -111,25 +112,45 @@ if __name__ == '__main__':
                #print("module: "+mod.name+" has " +str(len(mod.pages)) +" pages and size of " + str(int(mod.size,0)))
                #time.sleep(5)
                # How many pages percent %
-               pr.summodules[index]= sum(int(c.size,0) for c in mod.pages)/int(mod.size,0) #Here you should sum all sizes 
-               ListOfPages[index].extend(mod.pages)
-            
+               pr.summodules[index]= sum(int(c.size,0) for c in mod.pages)/int(mod.size,0) 
+               #ListOfPages[index].extend(mod.pages)
+               ListOfobsoletePages[index].extend(mod.pages)
                #print(str(pr.summodules[index])+" len: "+str(len(str(pr.summodules[index]))) )
                if(len(str(pr.summodules[index]))>4):
                    pr.summodules[index]=float(str(pr.summodules[index])[:6])*100
 
-    for i in range(0,len(ListOfPages)):
-        ListOfPages[i]=list(tz.unique(ListOfPages[i], key=lambda x: x.address))
+    #for i in range(0,len(ListOfPages)):
+    #    ListOfPages[i]=list(tz.unique(ListOfPages[i], key=lambda x: x.address))
+    for i in range(0,len(ListOfobsoletePages)):
+        ListOfobsoletePages[i]=list(tz.unique(ListOfobsoletePages[i], key=lambda x: x.rlOffset))
 
+    #op=next((x for x in list_modules if x.name == "ksuser.dll"), None)
+    #print(op.name)
+    #print (ListOfobsoletePages[20])
 
-    print (list_modules[20].name)
-   
-    for item in ListOfPages[20]:
-        print(item.address)
+    #for i in list_modules:
+    #    print(i.name)
+
+    #print(list_modules[49].name)
+
+    SummaryList=[0]*len(list_modules)
+    for i in range(0,len(list_modules)):
+        if(len(ListOfobsoletePages[i])!=0):
+            #print(i)
+            xval= (((max(int(node.rlOffset,0) for node in ListOfobsoletePages[i]))/4096)+1)
+            yval=(len(ListOfobsoletePages[i]))
+            #print("index"+str(indexa))
+            #print(int(yval*100/xval))
+            #print(int(yval*100/xval))
+            SummaryList[i]=int(yval*100/xval)
     
-    time.sleep(5)   
+   
 
-
+    print(SummaryList[20])
+    print(list_modules[20].name)
+    #print("PAUSING")
+    #time.sleep(5)
+    '''
     for pr in heatmap_dump.processes:
         for mod in pr.modules:
             index=get_index(list_modules,mod.name)
@@ -140,22 +161,8 @@ if __name__ == '__main__':
                 else:
                     print(mod.name+"-"+str(int(mod.size,0))+" - "+str(len(ListOfPages[index])*4096)+" "+flag+" "+str(index))
 
-  
-    #for item in ListOfPages[6]:
-    #    print(item.address)
-    #
-    print("process")
-    #for item in ListOfPages[6]:
-    #    print(item.address)
-
-
-    #print(ListOfPages[index][0].address)
-    #print("PAUSING")
-    #time.sleep(5)
-
-
-
-    memmap.display_summaryheatmap(heatmap_dump,list_modules)
+    '''
+    memmap.display_summaryheatmap(heatmap_dump,list_modules,SummaryList)
 
  
 
@@ -176,4 +183,19 @@ if __name__ == '__main__':
         pr.summodules=[x * ((counter/len(list_modules))*1000) for x in pr.summodules]
         #print(pr.summodules)
         #time.sleep(5)
+    '''
+    # This is the process to be sure of the summary list 
+    '''
+    print(list_modules[64].name)
+    for item in ListOfobsoletePages[64]:
+        print(item.rlOffset)
+    print((max(int(node.rlOffset,0) for node in ListOfobsoletePages[64])))
+    print(hex((max(int(node.rlOffset,0) for node in ListOfobsoletePages[64]))))
+    xval= (((max(int(node.rlOffset,0) for node in ListOfobsoletePages[64]))/4096)+1)
+    yval=(len(ListOfobsoletePages[64]))
+    print("MAXVAL: "+str(xval))
+    print("PAGESNUM: "+str(yval))
+    #print(xval,yval)
+    print(int(yval*100/xval))
+    #ksuser.dll
     '''

@@ -1,5 +1,5 @@
 from math import pi
-from bokeh.io import output_file, show, vplot, gridplot
+from bokeh.io import output_file, show, vplot
 from bokeh.models import ColumnDataSource, HoverTool, LinearColorMapper
 from bokeh.plotting import figure
 import pandas as pd
@@ -10,25 +10,15 @@ import time
 import memory_dump as md
 import page as pg
 
-import heatmap_summary as shmap
-import heatmap_starter as stmap
-
-def extractPages(module):
-    list = []
-    for i in module.pages:
-        list.append[i]
-
-
-
-def display_summaryheatmap(dumpM,listM,SummaryList):
+def display_summarystarter(dumpM):
     
     #print("RIGHT DIRRECT")
     #time.sleep(5)
     # define processes on Y-Axis
     processes=[o.name+" / "+o.pid for o in dumpM.processes]
     # define modules on X-Axis
-    Steps=[o.name for o in listM]
-    listP=[]*len(listM)
+    Steps=["Starter"]
+    #listP=[]*len(listM)
     #Summary_List=[0]*len(listM)
     module = []
     process=[]
@@ -37,35 +27,28 @@ def display_summaryheatmap(dumpM,listM,SummaryList):
     process_val=[]
     base_address=[]
     for proc in dumpM.processes: # Names of processes
-        #print(module_index)
-        #print("now"+proc.name)
-        module_index=0
-        for mod in listM : # Addresses of modules
-            step.append(mod.name)
-            base_address.append(mod.base)
-            process.append(proc.name+" / "+proc.pid)
-            #Summary_List[module_index]=Summary_List[module_index]+proc.summodules[module_index]
-            if(proc.summodules[module_index]==0):
-                module.append(-30)
-                process_val.append(0)
-            else:
-                module.append(proc.summodules[module_index])
-                process_val.append(proc.summodules[module_index])#normalization
-            module_index=module_index+1
+        process.append(proc.name+" / "+proc.pid)
+        module.append(1)
+        step.append("Starter")
+        if(len(proc.modules)!=0):
+            process_val.append(proc.modules[0].name)
+        else:
+            process_val.append("n\a")
+    
    
-    source = ColumnDataSource(data=dict(module=module, process=process,step=step,base_address=base_address,process_val=process_val))
+    source = ColumnDataSource(data=dict(module=module, process=process,step=step,process_val=process_val))
     TOOLS = "hover,save,pan,box_zoom,wheel_zoom"
     # the figure and its properties 
-    p = figure(title="Memory Dump Visualization",
+    p = figure(title="s",
                x_range=Steps, y_range=list(reversed(processes)),
                #x_axis_location="above", plot_width=1450, plot_height=700,
-               x_axis_location="above", plot_width=1450, plot_height=650,
+               x_axis_location="above", plot_width=50, plot_height=650,
                tools=TOOLS,toolbar_location="above")
     p.border_fill_color = "whitesmoke"
-    p.min_border_bottom = 10
-    p.min_border_right = 10
+    #p.min_border_bottom = 10
+    #p.min_border_right = 10
     p.toolbar.logo = None
-
+    p.toolbar_location = None
 
     p.grid.grid_line_color = None
     p.axis.axis_line_color = None
@@ -89,19 +72,11 @@ def display_summaryheatmap(dumpM,listM,SummaryList):
     # info to display on hover
     p.select_one(HoverTool).tooltips = [
         ('Process / PID', '@process'),
-        ('Module', '@step'),
+        ('process_val', '@process_val'),
         ('Address', '@base_address'),  
         ('Value', '@process_val'),
     ]
     p.xaxis.visible = False
     p.yaxis.visible = False
 
-    p1=stmap.display_summarystarter(dumpM)
-    p2=shmap.display_summaryhp(dumpM,listM,SummaryList)
-    #output=vplot(p1,p,p2)
-    
-    output = gridplot([[p, p1], [p2, None]])
-
-
-    #output=vplot(p)
-    show(output)      # show the plot
+    return(p)
