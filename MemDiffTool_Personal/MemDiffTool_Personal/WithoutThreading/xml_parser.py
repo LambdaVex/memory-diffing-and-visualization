@@ -47,15 +47,17 @@ def parse(heatmap_dump,filename):
         process=pr.Process(root[i].attrib['name'],root[i].attrib['pid'])
         #print("add process: "+process.name)
         heatmap_dump.processes.append(process)
+        sum_sizes=0
         for j in range(0,len(root[i])):
             #print("--------{0}:{1}".format(root[i][j].attrib['name'],root[i][j].attrib['base']))
             module=mod.Module(root[i][j].attrib['name'],root[i][j].attrib['base'],root[i][j].attrib['size'])
+            sum_sizes=sum_sizes+int(module.size,16)
             heatmap_dump.processes[i].modules.append(module)
             for k in range(0,len(root[i][j])):
                 #print("----------------{0}".format(root[i][j][k].text))
                 tpage=pge.Page(root[i][j][k].text,root[i][j][k].attrib['Asci'],root[i][j][k].attrib['NAsci'],root[i][j][k].attrib['Num'],root[i][j][k].attrib['Ent'],root[i][j][k].attrib['Size'],root[i][j][k].attrib['Hash'],root[i][j][k].attrib['RelativeOffset'])
-                
                 heatmap_dump.processes[i].modules[j].pages.append(tpage)
+        heatmap_dump.processes[i].sum_sizes=sum_sizes
     return heatmap_dump
 def truncate(f, n):
     '''Truncates/pads a float f to n decimal places without rounding'''
