@@ -1,5 +1,5 @@
 from math import pi
-from bokeh.io import output_file, show, vplot, gridplot
+from bokeh.io import output_file, show, vplot, gridplot, hplot
 from bokeh.models import ColumnDataSource, HoverTool, LinearColorMapper
 from bokeh.plotting import figure
 import pandas as pd
@@ -12,6 +12,7 @@ import page as pg
 
 import heatmap_summary as shmap
 import heatmap_starter as stmap
+import heatmap_Filler as fillmap
 
 def extractPages(module):
     list = []
@@ -63,9 +64,11 @@ def display_summaryheatmap(dumpM,listM,SummaryList):
                tools=TOOLS,toolbar_location="above")
     p.border_fill_color = "whitesmoke"
     p.min_border_bottom = 10
-    p.min_border_right = 10
+    #p.min_border_right = 10
     p.toolbar.logo = None
-
+    #p.toolbar_location = None
+    #p.logo=None
+    #p.toolbar_location = None
 
     p.grid.grid_line_color = None
     p.axis.axis_line_color = None
@@ -98,10 +101,16 @@ def display_summaryheatmap(dumpM,listM,SummaryList):
 
     p1=stmap.display_summarystarter(dumpM)
     p2=shmap.display_summaryhp(dumpM,listM,SummaryList)
-    #output=vplot(p1,p,p2)
+    p3=fillmap.display_summaryfiller(dumpM)
     
-    output = gridplot([[p, p1], [p2, None]])
 
+    output=vplot(hplot(p1,p),hplot(p3,p2))
+    #output=vplot(p,p1,p2)
+    #output=gridplot(p,p2)
+    #output = gridplot([[p, p1], [p2, None]])
+    #output=gridplot(p1, p, p3, p2,ncols=2)
 
+    #output = gridplot([[p1, p], [p3, p2]])
+   
     #output=vplot(p)
     show(output)      # show the plot

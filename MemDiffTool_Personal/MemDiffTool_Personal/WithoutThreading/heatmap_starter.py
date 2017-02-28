@@ -39,7 +39,7 @@ def display_summarystarter(dumpM):
     source = ColumnDataSource(data=dict(module=module, process=process,step=step,process_val=process_val))
     TOOLS = "hover,save,pan,box_zoom,wheel_zoom"
     # the figure and its properties 
-    p = figure(title="s",
+    p = figure(title="",
                x_range=Steps, y_range=list(reversed(processes)),
                #x_axis_location="above", plot_width=1450, plot_height=700,
                x_axis_location="above", plot_width=50, plot_height=650,
@@ -47,13 +47,15 @@ def display_summarystarter(dumpM):
     p.border_fill_color = "whitesmoke"
     #p.min_border_bottom = 10
     #p.min_border_right = 10
+    p.min_border_left = 40
     p.toolbar.logo = None
+    #p.logo=None
     p.toolbar_location = None
 
     p.grid.grid_line_color = None
     p.axis.axis_line_color = None
     p.axis.major_tick_line_color = None
-    p.axis.major_label_text_font_size = "5pt"
+    p.axis.major_label_text_font_size = "1pt"
     p.axis.major_label_standoff = 0
     p.xaxis.major_label_orientation = pi / 3
        
@@ -71,10 +73,9 @@ def display_summarystarter(dumpM):
 
     # info to display on hover
     p.select_one(HoverTool).tooltips = [
-        ('Process / PID', '@process'),
-        ('process_val', '@process_val'),
-        ('Address', '@base_address'),  
-        ('Value', '@process_val'),
+        ('', '@process_val'),
+        ('', '@process_val'),
+ 
     ]
     p.xaxis.visible = False
     p.yaxis.visible = False

@@ -32,7 +32,12 @@ def display_summaryhp(dumpM,listM,SummaryList):
             step.append(mod.name)
             base_address.append(mod.base)
             process.append(proc)
-            module.append(SummaryList[module_index])
+            if(SummaryList[module_index]==0):
+                module.append(-30)
+                process_val.append(0)
+            else:
+                module.append(SummaryList[module_index])
+                process_val.append(SummaryList[module_index])
             process_val.append(1)
             '''
             if(proc.summodules[module_index]==0):
@@ -50,12 +55,12 @@ def display_summaryhp(dumpM,listM,SummaryList):
     p = figure(title="Summary",
                x_range=Steps, y_range=list(reversed(processes)),
                x_axis_location="above", plot_width=1450, plot_height=50,
-               tools=TOOLS,toolbar_location="above")
-    p.border_fill_color = "whitesmoke"
+               tools=TOOLS,toolbar_location="below")
+    #p.border_fill_color = "whitesmoke"
     #p.min_border_left = 80
-    #p.min_border_bottom = 80
-    p.min_border_right = 10
-
+    #p.min_border_bottom = 10
+    #p.min_border_right = 10
+    #p.min_border_top = 10
     p.toolbar.logo = None
     p.toolbar_location = None
 
@@ -83,7 +88,7 @@ def display_summaryhp(dumpM,listM,SummaryList):
       #  ('Process / PID', '@process'),
         ('Module', '@step'),
         ('Address', '@base_address'),  
-        ('Value', '@module'),
+        ('Value', '@process_val'),
     ]
     p.xaxis.visible = False
     p.yaxis.visible = False
