@@ -25,7 +25,21 @@ def diffProcesses(Proc_A,Proc_B):
             module.M_indicator=-1
             #dump_Diff.processes.append(process)
 
+def diffModules(Module_A,Module_B):
+    address_listA = {page.address for page in Module_A.pages}
+    for page in Module_B.pages:
+        if page.address not in address_listA:
+            #print (process.pid )
+            page.Page_indicator=1
+            #dump_Diff.processes.append(process)
 
+    print("Deleted Processes")
+    address_listB = {page.address for page in Module_B.pages}
+    for page in Module_A.pages:
+        if page.address not in address_listB:
+            #print (process.pid )
+            page.Page_indicator=-1
+            #dump_Diff.processes.append(process)
 
 
 
@@ -62,6 +76,7 @@ for process in dump_A.processes:
 for i in dump_A.processes:
     if(i.P_indicator==-100):
         proc = next((x for x in dump_B.processes if x.pid == i.pid), None)
+        diffProcesses(i,proc)
         print(proc.memory_used_by_pages)
 #for i in dump_Diff.processes:
 #    print(i.P_indicator)
