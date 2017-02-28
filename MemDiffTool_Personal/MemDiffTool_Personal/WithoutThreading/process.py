@@ -9,6 +9,8 @@ import bisect_module as bi
 
 class Process:
 
+    P_indicator=-100
+
     def __init__(self, name, pid):
         self.name = name
         self.pid = pid

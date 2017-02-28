@@ -10,6 +10,9 @@ import page as pg
 import mapping
 class Module:
 
+
+    M_indicator=-100
+
     def __init__(self, name, base, size):
         self.name = name
         self.base = base
@@ -37,7 +40,7 @@ class Module:
                 #MHDCODE
                 statistics=mapping.slicing(physical_address[page],sizes[page])
                 #newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2])
-                newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2],statistics[3],sizes[page],statistics[4])
+                newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2],statistics[3],sizes[page],statistics[4],0)
                 self.pages.append(newPage)
                 #self.pages.append(virtual_address[page])
                 #print(virtual_address[page]+"Added!")
