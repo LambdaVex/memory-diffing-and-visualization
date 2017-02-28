@@ -31,11 +31,19 @@ class Process:
         #first index of core adresse 
         for i in virtual:
             if(int(i,16)>int('0x000007ff00000000',16)):
-                jump=bi.index(virtual,i)
+                try:
+                    jump=bi.index(virtual,i)
+                except:
+                    jump=-2
+                    break;
                 break;
         #the sum of pages sizes till the jump minus the first two line discarded
-        if(jump!=-1):
-            self.memory_used_by_pages=sum(int(i,16) for i in sizes[:jump])
+        if(jump>-1):
+             self.memory_used_by_pages=sum(int(i,16) for i in sizes[:jump])
+        if(jump==-2):
+             self.memory_used_by_pages='Only Kernel Addresses'
+
+
         process="dlllist_"+str(self.pid)+".info"
         dlllist=pandas.read_fwf(co.output_location+"\\"+process)
 

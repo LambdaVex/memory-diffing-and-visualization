@@ -16,3 +16,4 @@ class Page:
         self.entropy = entropy
         self.size=size
         self.hash=hash
+

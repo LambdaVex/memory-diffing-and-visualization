@@ -20,7 +20,7 @@ def build_file(dump1):
                 #round
     tree = ET.ElementTree(data)
     #to remove threading uncomment the line below and comment the one below it
-    tree.write("testxml.xml")
+    tree.write("WithMalware.xml")
     
 def combine_xml(files):
     first = None
