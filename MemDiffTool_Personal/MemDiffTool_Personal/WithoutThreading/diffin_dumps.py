@@ -71,8 +71,6 @@ for process in dump_A.processes:
         process.P_indicator=-1
         dump_Diff.processes.append(process)
 
-
-
 for i in dump_A.processes:
     if(i.P_indicator==-100):
         proc = next((x for x in dump_B.processes if x.pid == i.pid), None)
