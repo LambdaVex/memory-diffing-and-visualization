@@ -8,6 +8,7 @@ import module as mod
 import page as pge
 import xml_parser as xp
 import configuration as co
+import heatmap_diffing as hmapdiff
 
 def diffProcesses(Proc_A,Proc_B):
     base_listA = {module.base for module in Proc_A.modules}
@@ -72,7 +73,20 @@ for process in dump_A.processes:
         dump_Diff.processes.append(process)
 
 
+for i in dump_A.processes:
+    if(i.P_indicator==-100):
+        dump_Diff.processes.append(i)
+for i in dump_B.processes:
+    if(i.P_indicator==-100):
+        dump_Diff.processes.append(i)
 
+
+
+
+'''
+print(len(dump_A.processes))
+print(len(dump_B.processes))
+print(len(dump_Diff.processes))
 for i in dump_A.processes:
     if(i.P_indicator==-100):
         proc = next((x for x in dump_B.processes if x.pid == i.pid), None)
@@ -83,5 +97,7 @@ for i in dump_A.processes:
 
 for i in dump_A.processes:
     print(i.P_indicator)
+'''
 
+hmapdiff.display_diffingheatmap(dump_Diff)
 print("Done")

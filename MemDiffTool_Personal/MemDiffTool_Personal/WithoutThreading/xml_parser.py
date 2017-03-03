@@ -95,25 +95,16 @@ if __name__ == '__main__':
     
     list_modules.sort(key = lambda x: x.base)
     list_modules=list(tz.unique(list_modules, key=lambda x: x.name))
-    #print(len(list_modules))
-    #print("PAUSE")
-    #time.sleep(5)
-        #print(heatmap_dump.processes[1].summodules)
-    #ListOfPages= [[] for i in range(len(list_modules))]
     ListOfobsoletePages= [[] for i in range(len(list_modules))]
-    #L=[[],[],[]]
 
     for pr in heatmap_dump.processes:
         pr.summodules=[0]*len(list_modules)
-        #print(len(list_modules))
-      
+
         for mod in pr.modules:
-           #print(mod.name)
+
            index=get_index(list_modules,mod.name)
            if(index!=-1):
-  
-               #print("module: "+mod.name+" has " +str(len(mod.pages)) +" pages and size of " + str(int(mod.size,0)))
-               #time.sleep(5)
+
                # How many pages percent %
                pr.summodules[index]= sum(int(c.size,0) for c in mod.pages)/int(mod.size,0) 
                #ListOfPages[index].extend(mod.pages)
@@ -122,6 +113,24 @@ if __name__ == '__main__':
                if(len(str(pr.summodules[index]))>4):
                    pr.summodules[index]=float(str(pr.summodules[index])[:6])*100
 
+
+    #print(heatmap_dump.processes[7].modules[44].name)
+    print(list_modules[248].name)
+    print(ListOfobsoletePages[248])
+
+
+    
+    #print(heatmap_dump.processes[7].modules[44].name)
+    #print(heatmap_dump.processes[7].modules[44].name)
+    # 7 , 248, 44
+    i = 0
+    #print(get_index(list_modules,'tspkg.dll'))
+    for modd in heatmap_dump.processes[7].modules:
+        if(modd.name=="tspkg.dll"):
+            print("")
+        i=i+1
+    #print(heatmap_dump.processes[7].modules[44].name)
+    
     #for i in range(0,len(ListOfPages)):
     #    ListOfPages[i]=list(tz.unique(ListOfPages[i], key=lambda x: x.address))
     for i in range(0,len(ListOfobsoletePages)):
@@ -147,10 +156,10 @@ if __name__ == '__main__':
             #print(int(yval*100/xval))
             SummaryList[i]=int(yval*100/xval)
     
-   
-
-    print(SummaryList[20])
-    print(list_modules[20].name)
+    #print("VAL")
+    
+    #print(SummaryList[20])
+    #print(list_modules[20].name)
     #print("PAUSING")
     #time.sleep(5)
     '''

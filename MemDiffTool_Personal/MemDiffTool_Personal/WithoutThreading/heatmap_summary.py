@@ -38,7 +38,7 @@ def display_summaryhp(dumpM,listM,SummaryList):
             else:
                 module.append(SummaryList[module_index])
                 process_val.append(SummaryList[module_index])
-            process_val.append(1)
+            #process_val.append(1)
             '''
             if(proc.summodules[module_index]==0):
                 module.append(-100)
@@ -48,7 +48,12 @@ def display_summaryhp(dumpM,listM,SummaryList):
                 process_val.append(proc.summodules[module_index]/10)#normalization
             '''
             module_index=module_index+1
-   
+       #CHECK HERE
+    print(process_val[248])
+    print("VAL")
+    print(SummaryList[248])
+
+    #time.sleep(5)
     source = ColumnDataSource(data=dict(module=module, process=process,step=step,base_address=base_address,process_val=process_val))
     TOOLS = "hover,save,pan,box_zoom,wheel_zoom"
     # the figure and its properties 

@@ -23,6 +23,8 @@ def extractPages(module):
 
 def display_summaryheatmap(dumpM,listM,SummaryList):
     
+
+    
     #print("RIGHT DIRRECT")
     #time.sleep(5)
     # define processes on Y-Axis
@@ -63,7 +65,7 @@ def display_summaryheatmap(dumpM,listM,SummaryList):
                x_axis_location="above", plot_width=1450, plot_height=650,
                tools=TOOLS,toolbar_location="above")
     p.border_fill_color = "whitesmoke"
-    p.min_border_bottom = 10
+    #p.min_border_bottom = 10
     #p.min_border_right = 10
     p.toolbar.logo = None
     #p.toolbar_location = None
@@ -98,6 +100,8 @@ def display_summaryheatmap(dumpM,listM,SummaryList):
     ]
     p.xaxis.visible = False
     p.yaxis.visible = False
+
+    
 
     p1=stmap.display_summarystarter(dumpM)
     p2=shmap.display_summaryhp(dumpM,listM,SummaryList)
