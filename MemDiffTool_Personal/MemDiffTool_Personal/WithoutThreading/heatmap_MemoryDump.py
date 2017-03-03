@@ -65,7 +65,7 @@ def display_summaryheatmap(dumpM,listM,SummaryList):
                x_axis_location="above", plot_width=1450, plot_height=650,
                tools=TOOLS,toolbar_location="above")
     p.border_fill_color = "whitesmoke"
-    #p.min_border_bottom = 10
+    p.min_border_bottom = 20
     #p.min_border_right = 10
     p.toolbar.logo = None
     #p.toolbar_location = None

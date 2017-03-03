@@ -61,7 +61,7 @@ def display_summaryhp(dumpM,listM,SummaryList):
                x_range=Steps, y_range=list(reversed(processes)),
                x_axis_location="above", plot_width=1450, plot_height=50,
                tools=TOOLS,toolbar_location="below")
-    #p.border_fill_color = "whitesmoke"
+    p.border_fill_color = "whitesmoke"
     #p.min_border_left = 80
     #p.min_border_bottom = 10
     #p.min_border_right = 10
