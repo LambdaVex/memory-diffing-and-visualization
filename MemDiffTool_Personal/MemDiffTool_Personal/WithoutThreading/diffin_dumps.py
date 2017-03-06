@@ -9,7 +9,7 @@ import page as pge
 import xml_parser as xp
 import configuration as co
 import heatmap_diffing as hmapdiff
-
+import time
 def diffProcesses(Proc_A,Proc_B):
     base_listA = {module.base for module in Proc_A.modules}
     for module in Proc_B.modules:
@@ -99,5 +99,6 @@ for i in dump_A.processes:
     print(i.P_indicator)
 '''
 
-hmapdiff.display_diffingheatmap(dump_Diff)
+
+hmapdiff.display_diffingheatmap(dump_Diff,dump_A,dump_B)
 print("Done")
