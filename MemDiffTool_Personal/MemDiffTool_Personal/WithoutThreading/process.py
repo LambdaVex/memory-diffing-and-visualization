@@ -43,7 +43,7 @@ class Process:
         jump=-1
         #first index of core adresse 
         for i in virtual:
-            if(int(i,16)>int('0x000007ff00000000',16)):
+            if(int(i,16)>int('0x0000080000000000',16)):
                 try:
                     jump=bi.index(virtual,i)
                 except:
