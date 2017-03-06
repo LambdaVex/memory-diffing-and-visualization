@@ -6,11 +6,7 @@ def build_file(dump1):
     data = ET.Element("dump")
     for i in dump1.processes:
         #to get rid of divide by zero error
-        if(i.memory_used_by_modules==0):
-                x='XXX'
-        else:
-               x=i.memory_used_by_pages*100/i.memory_used_by_modules
-        Node=ET.SubElement(data, 'Proc', name=i.name,pid=i.pid,memory_used_by_modules=str(i.memory_used_by_modules),memory_used_by_pages=str(i.memory_used_by_pages),memory_usability_percentage=str(x))
+        Node=ET.SubElement(data, 'Proc', name=i.name,pid=i.pid,memory_used_by_pages=str(hex(i.covered_memory_by_pages)),covered_memory_by_modules=str(hex(i.covered_memory_by_modules)),uncovered_memory_ratio=str(i.ratio))
         for j in i.modules:
             Child=ET.SubElement(Node, 'Mod', name=j.name,base =  j.base,size=j.size)
             for k in j.pages:

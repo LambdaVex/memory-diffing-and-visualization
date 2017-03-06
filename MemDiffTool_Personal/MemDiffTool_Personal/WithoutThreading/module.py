@@ -12,7 +12,6 @@ class Module:
 
 
     M_indicator=-100
-
     def __init__(self, name, base, size):
         self.name = name
         self.base = base
@@ -20,6 +19,7 @@ class Module:
         self.memory_used_by_pages=0
         self.pages = []    
         self.hmpages = [] 
+        self.covered_memory=0
         #252
 
     def add_pages(self,pid):
@@ -34,10 +34,13 @@ class Module:
         #page_size=memmap.ix[:,2].replace(" ", "")
         #print(virtual_address)
         page=bi.index(virtual_address,self.base)
-  
+        #counter will count the number of pages related to this module
+        related_pages_counter=0
         if(page != -1):
             while int(virtual_address[page],16)<=int(self.base,16)+int(self.size,16):
-                #MHDCODE
+                #increase the counter by one
+                related_pages_counter=related_pages_counter+1
+                #calculate the entropy, hash, number of ASCIS....
                 statistics=mapping.slicing(physical_address[page],sizes[page])
                 #newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2])
                 newPage=pg.Page(virtual_address[page],statistics[0],statistics[1],statistics[2],statistics[3],sizes[page],statistics[4],0)
@@ -45,4 +48,7 @@ class Module:
                 #self.pages.append(virtual_address[page])
                 #print(virtual_address[page]+"Added!")
                 page=page+1
+            self.covered_memory=str(hex(related_pages_counter*int('0x1000',16)))
+            return self.covered_memory
+        return str(hex(0))
         #time.sleep(5)

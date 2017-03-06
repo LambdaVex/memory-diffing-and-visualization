@@ -11,13 +11,24 @@ class Process:
 
     P_indicator=-100
 
+    ratio=0
     def __init__(self, name, pid):
         self.name = name
         self.pid = pid
-        self.memory_used_by_modules=0
-        self.memory_used_by_pages=0
         self.modules = []    
         self.summodules = []
+        self.covered_memory_by_pages=0
+        self.covered_memory_by_modules=0
+        self.ratio=0
+      
+    def calulateUncoveredMemroy(self):
+        if self.covered_memory_by_pages!=0:
+            self.ratio=(round((self.covered_memory_by_pages-self.covered_memory_by_modules)/self.covered_memory_by_pages, 2))*100
+        else:
+            self.ratio=-1
+          
+    def addUncoveredMemeoryFromModules(self,memory):
+        self.covered_memory_by_modules=self.covered_memory_by_modules+int(memory,16)
 
     def add_modules(self):
         #this section to calculate the memory used by pages for a certain process
@@ -41,14 +52,11 @@ class Process:
                 break;
         #the sum of pages sizes till the jump minus the first two line discarded
         if(jump>-1):
-             self.memory_used_by_pages=sum(int(i,16) for i in sizes[:jump])
+             self.covered_memory_by_pages=sum(int(i,16) for i in sizes[:jump-1])
         if(jump==-2):
-             self.memory_used_by_pages='Only Kernel Addresses'
-
-
+             self.covered_memory_by_pages=-1
         process="dlllist_"+str(self.pid)+".info"
         dlllist=pandas.read_fwf(co.output_location+"\\"+process)
-
         if(len(dlllist)>2):
             for i in range(4,len(dlllist)):     
                 line = dlllist.iloc[i,0]
@@ -63,7 +71,7 @@ class Process:
                             # A fix for the bug when the data is not in the last index of data 
                             module=md.Module(os.path.basename(os.path.normpath(data[len(data)-1])) if len(data) > 3 else "n/a",data[0],data[1])
                             #sum the number of memory used by the Dlls  
-                            self.memory_used_by_modules=self.memory_used_by_modules+ int(data[1],16)  
+                            #self.memory_used_by_modules=self.memory_used_by_modules+ int(data[1],16)  
                             #print(module.name)
                             self.modules.append(module)
                     else:

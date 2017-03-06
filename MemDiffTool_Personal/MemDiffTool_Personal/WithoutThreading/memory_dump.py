@@ -65,7 +65,9 @@ class MemoryDump:
         for i in self.processes:
             print("Process: "+i.pid+" under process")
             for j in i.modules:
-                j.add_pages(i.pid)
+               #add the returned uncovered pages sizes per module 
+               i.addUncoveredMemeoryFromModules(j.add_pages(i.pid))
+            i.calulateUncoveredMemroy()
         print("Modules cashing (2/2) done!")
 
     #single ID  
