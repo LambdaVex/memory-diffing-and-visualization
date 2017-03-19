@@ -15,8 +15,6 @@ import process as pr
 import module as mod
 import page as pge
 
-
-
 def get_index(list_modules,module):
     for index, item in enumerate(list_modules):
         if item.name == module:
@@ -26,7 +24,8 @@ def get_index(list_modules,module):
     return index
 
 def diff_modules(mod_A,mod_B):
-    flag=3
+    flag=3    # blue
+    '''
     address_listA = {pg.rlOffset for pg in mod_A.pages}
     Temp=[]
     for pg in mod_B.pages:
@@ -35,7 +34,7 @@ def diff_modules(mod_A,mod_B):
             Temp.append(pg)
 
     if(len(Temp)!=0):
-        flag = 2
+        flag = 2 # 2 bright red
         return flag
 
     address_listB = {pg.rlOffset for pg in mod_B.pages}
@@ -47,30 +46,42 @@ def diff_modules(mod_A,mod_B):
     if(len(Temp)!=0):
         flag = 2
         return flag
+    '''
     
+    for i in mod_B.pages:
+        for j in mod_A.pages:
+            if(i.rlOffset==j.rlOffset):
+                if(i.hash==j.hash):
+                    flag=3 # Blue
+                else:
+                    flag=2 # bright red
     for i in mod_A.pages:
         for j in mod_B.pages:
             if(i.rlOffset==j.rlOffset):
-                if( i.hash==j.hash):
-                    flag=3
+                if(i.hash==j.hash):
+                    flag=3 # Blue
                 else:
-                    flag=2
+                    flag=2 # bright red
     return flag
 #3,4,5
 def diff_processes(proc_A,proc_B):
-    # New Modules
+    """Create a list of modules in Proc_A. (New Modules)
+    If a module in Proc_B doesn't appear in Proc_A, then assign the tag 1 (New)
+    The process is repeated for modules in Proc_B
+    Finally for processes that have the default value, we do some more processing on the page level
+    """
     base_listA = {module.base for module in proc_A.modules}
     Temp=[]
     for module in proc_B.modules:
         if module.base not in base_listA:
-            module.M_indicator=5
+            module.M_indicator=5     #bright green
             Temp.append(module)
 
     # Delete Modules
     base_listB = {module.base for module in proc_B.modules}
     for module in proc_A.modules:
         if module.base not in base_listB:
-            module.M_indicator=6
+            module.M_indicator=6     #black  
             Temp.append(module)
 
     for i in proc_A.modules:
@@ -80,6 +91,7 @@ def diff_processes(proc_A,proc_B):
             i.M_indicator=stats
             Temp.append(i)
     return Temp
+
 
 def display_diffingheatmap(heatmap_dump,dump_A,dump_B):
     
@@ -184,7 +196,7 @@ def display_diffingheatmap(heatmap_dump,dump_A,dump_B):
     #colors = ["#75968f", "#a5bab7", "#c9d9d3", "#e2e2e2", "#dfccce", "#ddb7b1", "#cc7878", "#933b41", "#550b1d"]
     
     # blue #0000ff black #000000
-    # 1 red, 2 bright red, 3 blue, 4 dark green, 5 bright green, 6 black 
+    # 1 red, 2 bright red, 3 blue, 4 dark green, 5 bright green, 6 black , 7 grey
     colors = ["#d48989","#ff0000", "#0000ff","#A3C795","#03FF23","#000000", "#D3D3D3"]
     
     mapper = LinearColorMapper(palette=colors)
