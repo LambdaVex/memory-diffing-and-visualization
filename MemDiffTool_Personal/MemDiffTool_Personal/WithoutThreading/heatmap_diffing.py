@@ -101,9 +101,9 @@ def display_diffingheatmap(heatmap_dump,dump_A,dump_B):
     #because data coming from two dumps
     heatmap_dump.processes=list(tz.unique(heatmap_dump.processes, key=lambda x: x.pid))
 
-    for i in list_modules:
-        print(i.name)
-    print("_-----------------------")
+    #for i in list_modules:
+    #    print(i.name)
+    #print("_-----------------------")
 
     for proc in heatmap_dump.processes:
         #old
@@ -114,8 +114,8 @@ def display_diffingheatmap(heatmap_dump,dump_A,dump_B):
             Nmodules=diff_processes(next((x for x in dump_A.processes if x.pid == proc.pid), None),next((x for x in dump_B.processes if x.pid == proc.pid), None))
             for modl in Nmodules:
                 index=get_index(list_modules,modl.name)
-                if(index==-1):
-                    print("WARNING "+modl.name)
+                #if(index==-1):
+                #    print("WARNING "+modl.name)
                 if(index!=-1):
                     proc.summodules[index]= modl.M_indicator
             #print(proc_A.pid,proc_B.pid)

@@ -18,7 +18,7 @@ def diffProcesses(Proc_A,Proc_B):
             module.M_indicator=1
             #dump_Diff.processes.append(process)
 
-    print("Deleted Processes")
+    #print("Deleted Processes")
     base_listB = {module.base for module in Proc_B.modules}
     for module in Proc_A.modules:
         if module.base not in base_listB:
@@ -34,7 +34,7 @@ def diffModules(Module_A,Module_B):
             page.Page_indicator=1
             #dump_Diff.processes.append(process)
 
-    print("Deleted Processes")
+    #print("Deleted Processes")
     address_listB = {page.address for page in Module_B.pages}
     for page in Module_A.pages:
         if page.address not in address_listB:
@@ -45,7 +45,7 @@ def diffModules(Module_A,Module_B):
 
 
 
-filename_1="Resources/DiffingXml/OhneMalware.xml"
+filename_1="Resources/DiffingXml/WithoutMalware.xml"
 filename_2="Resources/DiffingXml/WithMalware.xml"
    
 dump_A=xp.parse(md.MemoryDump("heatmap1"),filename_1)
@@ -56,7 +56,7 @@ dump_Diff = md.MemoryDump("DIFF")
 #    print (i.pid)
 
 #dump_A.processes[0].P_indicator=1
-print("New Processes")
+#print("New Processes")
 pid_listA = {process.pid for process in dump_A.processes}
 for process in dump_B.processes:
     if process.pid not in pid_listA:
@@ -64,7 +64,7 @@ for process in dump_B.processes:
         process.P_indicator=1
         dump_Diff.processes.append(process)
 
-print("Deleted Processes")
+#print("Deleted Processes")
 pid_listB = {process.pid for process in dump_B.processes}
 for process in dump_A.processes:
     if process.pid not in pid_listB:

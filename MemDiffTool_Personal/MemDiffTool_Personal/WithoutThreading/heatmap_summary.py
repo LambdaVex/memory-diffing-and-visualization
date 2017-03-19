@@ -12,7 +12,7 @@ import page as pg
 
 def display_summaryhp(dumpM,listM,SummaryList):
     #print(Summary_List)
-    time.sleep(5)
+    #time.sleep(5)
     # define processes on Y-Axis
     processes=["Summary"]
     # define modules on X-Axis
@@ -49,9 +49,9 @@ def display_summaryhp(dumpM,listM,SummaryList):
             '''
             module_index=module_index+1
        #CHECK HERE
-    print(process_val[248])
-    print("VAL")
-    print(SummaryList[248])
+    #print(process_val[248])
+    #print("VAL")
+    #print(SummaryList[248])
 
     #time.sleep(5)
     source = ColumnDataSource(data=dict(module=module, process=process,step=step,base_address=base_address,process_val=process_val))

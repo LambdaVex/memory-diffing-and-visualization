@@ -18,6 +18,7 @@ class Process:
         self.memory_used_by_pages=0
         self.modules = []    
         self.summodules = []
+        self.UMR=0
 
     def add_modules(self):
         #this section to calculate the memory used by pages for a certain process
