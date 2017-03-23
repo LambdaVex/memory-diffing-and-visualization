@@ -54,14 +54,14 @@ def diff_modules(mod_A,mod_B):
                 if(i.hash==j.hash):
                     flag=3 # Blue
                 else:
-                    flag=2 # bright red
+                    return 2 # bright red
     for i in mod_A.pages:
         for j in mod_B.pages:
             if(i.rlOffset==j.rlOffset):
                 if(i.hash==j.hash):
                     flag=3 # Blue
                 else:
-                    flag=2 # bright red
+                    return 2 # bright red
     return flag
 #3,4,5
 def diff_processes(proc_A,proc_B):
