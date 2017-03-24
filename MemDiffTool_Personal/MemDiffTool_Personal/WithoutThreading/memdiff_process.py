@@ -14,7 +14,7 @@ start_time = time.time()
 
 ######## Volatility ########
 dump1 = md.MemoryDump(co.dump_memory_location)
-"""
+
 dump1.vol_pslist()
 list_pr=dump1.invoking_pid_of_processes()
 print("pslist Done!")
@@ -22,9 +22,9 @@ dump1.invoke_vol_dlllist(list_pr)
 print("dlllist Done!")
 dump1.invoke_vol_memmap(list_pr)
 print("memmap Done!")
-time.sleep(5)
-"""
+#time.sleep(5)
 
+'''
 ######## Initialize the Dump file
 ######## Cash the processes of the Dump file
 #dump1.vol_pslist() #Uncomment for New Dumps
@@ -37,4 +37,5 @@ dump1.cashing_of_modules()
 dump1.cashing_of_pages()
 
 xmlb.build_file(dump1)
+'''
 #xmlp.prase()
