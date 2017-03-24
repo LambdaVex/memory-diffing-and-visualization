@@ -11,8 +11,8 @@ import configuration as co
 import heatmap_diffing as hmapdiff
 import time
 
-filename_1="Resources/DiffingXml/WithoutMalware.xml"
-filename_2="Resources/DiffingXml/WithMalware.xml"
+filename_1="Resources/DiffingXml/NEW/withoutfinalone.xml"
+filename_2="Resources/DiffingXml/NEW/withMalware.xml"
    
 dump_A=xp.parse(md.MemoryDump("heatmap1"),filename_1)
 dump_B=xp.parse(md.MemoryDump("heatmap2"),filename_2)
