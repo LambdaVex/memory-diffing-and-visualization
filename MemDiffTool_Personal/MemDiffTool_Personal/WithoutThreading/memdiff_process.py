@@ -6,7 +6,8 @@ from pandas import DataFrame
 import time
 import os
 import xml_builder as xmlb
-import xml_parser as xmlp
+#import xml_parser as xmlp
+import visualize_memory as xmlp
 from multiprocessing import Process
 import multiprocessing
 
