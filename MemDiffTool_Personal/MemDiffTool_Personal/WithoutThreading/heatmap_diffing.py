@@ -197,7 +197,7 @@ def display_diffingheatmap(heatmap_dump,dump_A,dump_B):
     
     # blue #0000ff black #000000
     # 1 red, 2 bright red, 3 blue, 4 dark green, 5 bright green, 6 black , 7 grey
-    colors = ["#d48989","#ff0000", "#0000ff","#A3C795","#03FF23","#000000", "#D3D3D3"]
+    colors = ["#ff0000", "#0000ff","#A3C795","#03FF23","#000000", "#D3D3D3"]
     
     mapper = LinearColorMapper(palette=colors)
 
