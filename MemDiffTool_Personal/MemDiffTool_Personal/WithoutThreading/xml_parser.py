@@ -46,7 +46,7 @@ def parse(heatmap_dump,filename):
         #print("{0}:{1}".format(root[i].attrib['name'],root[i].attrib['pid']))
         process=pr.Process(root[i].attrib['name'],root[i].attrib['pid'],root[i].attrib['uncovered_memory_ratio'],root[i].attrib['memory_used_by_pages'],root[i].attrib['covered_memory_by_modules'])
         #print("add process: "+process.name)
-        #process.UMR=root[i].attrib['uncovered_memory_ratio']
+        process.UMR=root[i].attrib['uncovered_memory_ratio']
 
         heatmap_dump.processes.append(process)
         sum_sizes=0
@@ -77,8 +77,8 @@ if __name__ == '__main__':
     heatmap_dump=md.MemoryDump("heatmap")
 
     #filename_1="Complete_XML.xml"
-    filename_1="Resources/FullXML.xml"
-    #filename_2="testxml_withthread_number_14.xml"
+    filename_1="withoutfinalonenointernetsecond.xml"
+    #filename_2="Resources\FullXML.xml"
     #filename_3="testxml_withthread_number_27.xml"
    
     heatmap_dump=parse(heatmap_dump,filename_1)

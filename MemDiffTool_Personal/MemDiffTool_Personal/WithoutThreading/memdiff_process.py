@@ -38,4 +38,4 @@ dump1.cashing_of_pages()
 
 xmlb.build_file(dump1)
 
-#xmlp.prase()
+#xmlp.parse()

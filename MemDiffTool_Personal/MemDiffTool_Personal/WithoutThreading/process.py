@@ -12,7 +12,7 @@ class Process:
     P_indicator=-100
 
     ratio=0
-    def __init__(self, name, pid):
+    def __init__(self, name, pid,covered_memory_by_pages=0 ,covered_memory_by_modules=0 ,ratio=0 ):
         self.name = name
         self.pid = pid
         self.modules = []    
