@@ -46,6 +46,8 @@ def parse(heatmap_dump,filename):
         #print("{0}:{1}".format(root[i].attrib['name'],root[i].attrib['pid']))
         process=pr.Process(root[i].attrib['name'],root[i].attrib['pid'])
         #print("add process: "+process.name)
+        #process.UMR=root[i].attrib['uncovered_memory_ratio']
+
         heatmap_dump.processes.append(process)
         sum_sizes=0
         for j in range(0,len(root[i])):

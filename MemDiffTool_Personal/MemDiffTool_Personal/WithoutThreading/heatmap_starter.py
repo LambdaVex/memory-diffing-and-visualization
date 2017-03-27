@@ -25,18 +25,25 @@ def display_summarystarter(dumpM):
     module_index=0
     step=[]
     process_val=[]
-    base_address=[]
+    UMR=[]
     for proc in dumpM.processes: # Names of processes
         process.append(proc.name+" / "+proc.pid)
         module.append(1)
         step.append("Starter")
-        if(len(proc.modules)!=0):
-            process_val.append(proc.modules[0].name)
+        UMRS=str(proc.UMR)
+        if(len(UMRS)>6):
+            UMR.append(UMRS[0:6])
         else:
-            process_val.append("n\a")
+            UMR.append(UMRS)
+        #if(len(proc.modules)!=0):
+            
+            #print(len(proc.modules[0].name))
+        process_val.append(proc.name)
+        #else:
+            #process_val.append("n\a")
     
    
-    source = ColumnDataSource(data=dict(module=module, process=process,step=step,process_val=process_val))
+    source = ColumnDataSource(data=dict(module=module, process=process,step=step,process_val=process_val,UMR=UMR))
     TOOLS = "hover,save,pan,box_zoom,wheel_zoom"
     # the figure and its properties 
     p = figure(title="",
@@ -74,7 +81,7 @@ def display_summarystarter(dumpM):
     # info to display on hover
     p.select_one(HoverTool).tooltips = [
         ('', '@process_val'),
-        ('', '@process_val'),
+        ('', '@UMR'),
  
     ]
     p.xaxis.visible = False

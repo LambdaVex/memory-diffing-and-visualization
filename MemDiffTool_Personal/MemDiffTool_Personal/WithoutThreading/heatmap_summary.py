@@ -12,7 +12,7 @@ import page as pg
 
 def display_summaryhp(dumpM,listM,SummaryList):
     #print(Summary_List)
-    time.sleep(5)
+    #time.sleep(5)
     # define processes on Y-Axis
     processes=["Summary"]
     # define modules on X-Axis
@@ -38,7 +38,7 @@ def display_summaryhp(dumpM,listM,SummaryList):
             else:
                 module.append(SummaryList[module_index])
                 process_val.append(SummaryList[module_index])
-            process_val.append(1)
+            #process_val.append(1)
             '''
             if(proc.summodules[module_index]==0):
                 module.append(-100)
@@ -48,7 +48,12 @@ def display_summaryhp(dumpM,listM,SummaryList):
                 process_val.append(proc.summodules[module_index]/10)#normalization
             '''
             module_index=module_index+1
-   
+       #CHECK HERE
+    #print(process_val[248])
+    #print("VAL")
+    #print(SummaryList[248])
+
+    #time.sleep(5)
     source = ColumnDataSource(data=dict(module=module, process=process,step=step,base_address=base_address,process_val=process_val))
     TOOLS = "hover,save,pan,box_zoom,wheel_zoom"
     # the figure and its properties 
@@ -56,7 +61,7 @@ def display_summaryhp(dumpM,listM,SummaryList):
                x_range=Steps, y_range=list(reversed(processes)),
                x_axis_location="above", plot_width=1450, plot_height=50,
                tools=TOOLS,toolbar_location="below")
-    #p.border_fill_color = "whitesmoke"
+    p.border_fill_color = "whitesmoke"
     #p.min_border_left = 80
     #p.min_border_bottom = 10
     #p.min_border_right = 10
