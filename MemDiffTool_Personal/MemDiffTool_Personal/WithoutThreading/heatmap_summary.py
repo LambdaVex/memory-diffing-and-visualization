@@ -11,6 +11,9 @@ import memory_dump as md
 import page as pg
 
 def display_summaryhp(dumpM,listM,SummaryList):
+    """
+    Build and show the memory heatmap summary
+    """
     #print(Summary_List)
     #time.sleep(5)
     # define processes on Y-Axis

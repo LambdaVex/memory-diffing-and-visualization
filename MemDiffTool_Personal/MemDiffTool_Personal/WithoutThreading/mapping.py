@@ -6,6 +6,9 @@ import hashlib
 start=0x0
 size=0x0
 def read_write_chunks(start, size):
+    """
+    Partition the memory and write it to a specific location
+    """
     with open(co.output_location+"\chunk.info", "w") as f:# w means Opens a file for writing only. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing. for more info https://www.tutorialspoint.com/python/python_files_io.htm
         mm = mmap.mmap(f.fileno(), 0)
         mm.seek(start)
@@ -17,6 +20,9 @@ def read_write_chunks(start, size):
         mm.close()
 
 def search(word):
+    """
+    Search for a special value in the memory dump
+    """
     with open(co.dump_memory_location, "r+b") as f:
         mm = mmap.mmap(f.fileno(), 0)
         x= mm.rfind(word,0,2147418112)
@@ -25,6 +31,9 @@ def search(word):
         mm.close()
 
 def slicing(start, size):
+    """
+    Calculate the number of Ascii, non-Ascii and number characters in addition to the entropy value for a memory chunk 
+    """
     with open(co.dump_memory_location, "r+b") as f:
         mm = mmap.mmap(f.fileno(), 0)
         mm.seek(int(start,16))
@@ -41,16 +50,6 @@ def slicing(start, size):
               c=c+1
         e=entropy.entropy_c(rawdata)
         hash=hashlib.sha224(rawdata).hexdigest()
-        #print("the entropy is={0}".format(e))
         return [c,a,b,e,hash]
         mm.close()
         
-
-#read_write_chunks(0x4a680000,0x6000)
-#slicing('0x0000000100000000','0x5f000')
-#print(int('0x0000000100000000',16))
-
-"""
-*check LoadCount in pslist
-*check memmap,memdump
-"""

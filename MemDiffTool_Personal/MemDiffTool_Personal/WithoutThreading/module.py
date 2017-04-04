@@ -9,10 +9,20 @@ import time
 import page as pg
 import mapping
 class Module:
-
+    """
+    Module encapsulates the Modules.
+    """
 
     M_indicator=-100
     def __init__(self, name, base, size):
+        """
+        Construct a new 'Module' object.
+
+        :param name: The name of the module
+        :param base: The base addresse of the module
+        :param size: The size of the module
+        :return: returns nothing
+        """
         self.name = name
         self.base = base
         self.size = size
@@ -23,6 +33,9 @@ class Module:
         #252
 
     def add_pages(self,pid):
+        """
+        Add the related pages.
+        """
         #print(pid+" "+self.base)
         memmap=pandas.read_fwf(co.output_location+"\memmap_"+pid+".info",colspecs=[(0,18),(19,37),(38,56),(57,75)])
         virtual_address=memmap.ix[:,0]

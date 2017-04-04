@@ -7,24 +7,36 @@ volatilityLoc=co.volatility_standalone_location
 dumpLoc=co.dump_memory_location
 
 def vol_pslist():
+    """
+    Invoke lists from the memory dump.
+    """
     f = open(co.output_location+"\pslist.info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 pslist"
     subprocess.call(Command,stdout=f)
     print("pslist done!")
 
 def vol_memmap(PID):
+    """
+    Invoke pages from the memory dump.
+    """
     f = open(co.output_location+"\memmap"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memmap -p " + str(PID)
     subprocess.call(Command,stdout=f)
     print("memmap for PID:"+str(PID)+" is done!")
 
 def vol_dlllist(PID):
+    """
+    Invoke dlls from the memory dump.
+    """
     f = open(co.output_location+"\dlllist"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 dlllist -p " + str(PID)
     subprocess.call(Command,stdout=f)
     print("dlllist for PID:"+str(PID)+" is done!")
 
 def vol_memdump(PID):
+    """
+    Initialize the memory dump to be used by the volatility foundation.
+    """
     f = open(co.output_location+"\memdump"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memdump -p " + str(PID) +" -D "+co.output_location+"\DumpFolder"
     subprocess.call(Command,stdout=f)
@@ -32,6 +44,9 @@ def vol_memdump(PID):
 
 
 def vol_new(PID):
+    """
+    Cashes the processes.
+    """
     f = open(co.output_location+"\memdump"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memdump -p " + str(PID) +" -D "+co.output_location+"\DumpFolder"
     subprocess.call(Command,stdout=f)
@@ -69,21 +84,3 @@ for i in range(1,len(pslist)):
     #print("{0}".format(pslist.iloc[i,2]))
 #vol_memmap(4)
 
-'''
-file = open('memmap.txt', 'r')
-content=file.read()
-#print (content)
-df3=pandas.read_fwf('memmap.txt')
-
-myDict=dict()
-#print(len(df3))
-for i in range(len(df3)):
-    #print("{0} -- {1}".format(df3.iloc[i,1],df3.iloc[i,2]))
-    #myDict.update({df3.iloc[i,1]: df3.iloc[i,2]})
-    myDict[df3.iloc[i,1]]=df3.iloc[i,2]
-
-keylist = myDict.keys()
-keylist.sort()
-for i in range(len(keylist)):
-    print ("{0} --- {1}".format(keylist[i],int(keylist[i], 16)))
-'''

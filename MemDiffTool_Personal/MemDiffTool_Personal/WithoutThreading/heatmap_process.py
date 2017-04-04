@@ -10,8 +10,11 @@ import time
 import memory_dump as md
 import page as pg
 
+
 def display_processheatmap(proc):
-    
+    """
+    Build and show the memory heatmap
+    """
     # define Number of Chunks
     modules=[o.name for o in proc.modules]
 

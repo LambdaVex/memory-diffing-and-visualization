@@ -22,7 +22,9 @@ def extractPages(module):
 
 
 def display_summaryheatmap(dumpM,listM,SummaryList):
-    
+    """
+    Build and show the memory heatmap summary
+    """
     #print("RIGHT DIRRECT")
     #time.sleep(5)
     # define processes on Y-Axis

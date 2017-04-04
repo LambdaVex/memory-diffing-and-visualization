@@ -3,14 +3,18 @@ import pandas
 import os
 from tkinter.filedialog import askopenfilename
 
-# Method that provide browing capability
 def browse():
+    """
+    Method that provide browing capability
+    """
     global infile
     infile=askopenfilename()
     return infile
 
-# Read the process tree and operate on the memory layout 
 def processMemory():
+    """
+    Read the process tree and operate on the memory layout 
+    """
     df3=pandas.read_fwf(infile)
     for i in range(len(df3)):   
         if(df3.iloc[i,0][0]=='0'):

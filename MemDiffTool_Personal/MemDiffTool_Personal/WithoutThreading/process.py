@@ -8,11 +8,23 @@ import module as md
 import bisect_module as bi
 
 class Process:
-
+    """
+    Process encapsulates the process.
+    """
     P_indicator=-100
 
     ratio=0
     def __init__(self, name, pid,covered_memory_by_pages=0 ,covered_memory_by_modules=0 ,ratio=0 ):
+        """
+        Construct a new 'Process' object.
+
+        :param name: The name of the process
+        :param pid: The id of the process
+        :param covered_memory_by_pages: The size of covered memory by pages
+        :param covered_memory_by_modules: The size of covered memory by modules
+        :param ratio: The size of uncovered memory
+        :return: returns nothing
+        """
         self.name = name
         self.pid = pid
         self.modules = []    
@@ -22,15 +34,24 @@ class Process:
         self.ratio=0
       
     def calulateUncoveredMemroy(self):
+        """
+        Calculate the uncovered memory.
+        """
         if self.covered_memory_by_pages!=0:
             self.ratio=(round((self.covered_memory_by_pages-self.covered_memory_by_modules)/self.covered_memory_by_pages, 2))*100
         else:
             self.ratio=-1
           
     def addUncoveredMemeoryFromModules(self,memory):
+        """
+        Add the sizes of the modules.
+        """
         self.covered_memory_by_modules=self.covered_memory_by_modules+int(memory,16)
 
     def add_modules(self):
+        """
+        Add the related modules.
+        """
         #this section to calculate the memory used by pages for a certain process
         memmap=pandas.read_fwf(co.output_location+"\memmap_"+self.pid+".info",colspecs=[(0,18),(19,37),(38,56),(57,75)])
         #the size of memory used

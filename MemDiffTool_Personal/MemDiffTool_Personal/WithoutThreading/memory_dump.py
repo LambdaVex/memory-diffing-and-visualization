@@ -8,15 +8,25 @@ import bisect_module as bi
 import process as pr
 import module as md
 class MemoryDump:
+    """
+    memory_dump encapsulates a dump memory.
+    """
+    def __init__(self, path):#to remove threading uncomment the line below and comment the one below it
+        """
+        Construct a new 'memory_dump' object.
 
-    #to remove threading uncomment the line below and comment the one below it
-    def __init__(self, path):
+        :param path: The path of the memory dump
+        :return: returns nothing
+        """
         self.path = path
         self.processesCount = 0
         self.processes = []    
    
     ######## Processing Processes      
     def cashing_of_processes(self):
+        """
+        Cashes the processes.
+        """
         list_of_processes=pandas.read_fwf(co.output_location+"\pslist.info")
         #change the range to 1,len(processes) to remove threading
         for i in range(1,len(list_of_processes)):
@@ -26,6 +36,9 @@ class MemoryDump:
         print("Processes cashing (2/2) done!")
     
     def invoking_pid_of_processes(self):
+        """
+        Invokes the process' ids.
+        """
         list_pr=[]
         list_of_processes=pandas.read_fwf(co.output_location+"\pslist.info")
         for i in range(1,len(list_of_processes)):
@@ -33,6 +46,9 @@ class MemoryDump:
         return list_pr
 
     def vol_pslist(self):
+        """
+        Invokes the processes running.
+        """
         f = open(co.output_location+"\pslist.info", "w")
         Command=co.volatility_standalone_location+" -f "+co.dump_memory_location+" --profile=Win7SP1x64 pslist"
         subprocess.call(Command,stdout=f)
@@ -40,11 +56,17 @@ class MemoryDump:
     
     ######## Processing Modules
     def cashing_of_modules(self):
+        """
+        Cashes the modules.
+        """
         for i in self.processes:
             i.add_modules()
         print("Modules cashing (2/2) done!")
 
     def vol_dlllist(self):
+        """
+        Invokes the dlls running.
+        """
         for i in self.processes:
             f = open(co.output_location+"\dlllist"+"_"+str(i.pid)+".info", "w")
             Command=co.volatility_standalone_location+" -f "+co.dump_memory_location+" --profile=Win7SP1x64 dlllist -p " + str(i.pid)
@@ -53,6 +75,9 @@ class MemoryDump:
         print("Modules cashing (1/2) done!")
 
     def invoke_vol_dlllist(self,Prs):
+        """
+        Invokes the dlls for special process.
+        """
         for i in Prs:
             f = open(co.output_location+"\dlllist"+"_"+str(i)+".info", "w")
             Command=co.volatility_standalone_location+" -f "+co.dump_memory_location+" --profile=Win7SP1x64 dlllist -p " + str(i)
@@ -62,6 +87,9 @@ class MemoryDump:
     ######## Processing Pages
     #all IDs
     def cashing_of_pages(self):
+        """
+        Cashes the pages.
+        """
         for i in self.processes:
             print("Process: "+i.pid+" under process")
             for j in i.modules:
@@ -72,11 +100,17 @@ class MemoryDump:
 
     #single ID  
     def cashing_of_pid_pages(self,process):
+        """
+        Invokes the pages for special process.
+        """
         for i in process.modules:
             i.add_pages(process.pid)
         print("Modules cashing (2/2) done!") 
 
     def vol_memmap(self):
+        """
+        Invokes the pages running.
+        """
         for i in self.processes:
             f = open(co.output_location+"\memmap"+"_"+str(i.pid)+".info", "w")
             Command=co.volatility_standalone_location+" -f "+co.dump_memory_location+" --profile=Win7SP1x64 memmap -p " + str(i.pid)
@@ -85,6 +119,9 @@ class MemoryDump:
         print("Pages cashing (1/2) done!")
 
     def invoke_vol_memmap(self,Prs):
+        """
+        Invokes the pages for special process.
+        """
         for i in Prs:
             f = open(co.output_location+"\memmap"+"_"+str(i)+".info", "w")
             Command=co.volatility_standalone_location+" -f "+co.dump_memory_location+" --profile=Win7SP1x64 memmap -p " + str(i)

@@ -11,7 +11,9 @@ import memory_dump as md
 import page as pg
 
 def display_processheatmap(heatmap_dump):
-    
+    """
+    Show the memory heatmap
+    """
     proc=heatmap_dump.processes[1]
 
     # define Number of Chunks
