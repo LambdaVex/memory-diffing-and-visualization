@@ -35,7 +35,7 @@ def vol_dlllist(PID):
 
 def vol_memdump(PID):
     """
-    Invoke all memory resident pages in a process
+    Invoke all memory resident pages in a process from the memory dump.
     """
     f = open(co.output_location+"\memdump"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memdump -p " + str(PID) +" -D "+co.output_location+"\DumpFolder"
@@ -45,7 +45,7 @@ def vol_memdump(PID):
 
 def vol_new(PID):
     """
-    Invoke all memory resident pages in a process
+    Invoke all memory resident pages in a process from the memory dump.
     """
     f = open(co.output_location+"\memdump"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memdump -p " + str(PID) +" -D "+co.output_location+"\DumpFolder"
