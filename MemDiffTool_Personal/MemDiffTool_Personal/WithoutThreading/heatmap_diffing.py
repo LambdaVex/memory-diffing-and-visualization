@@ -24,29 +24,11 @@ def get_index(list_modules,module):
     return index
 
 def diff_modules(mod_A,mod_B):
+    """
+    Diff two different modules 
+    """  
     flag=3    # blue
-    '''
-    address_listA = {pg.rlOffset for pg in mod_A.pages}
-    Temp=[]
-    for pg in mod_B.pages:
-        if pg.rlOffset not in address_listA:
-            pg.Page_indicator=4
-            Temp.append(pg)
 
-    if(len(Temp)!=0):
-        flag = 2 # 2 bright red
-        return flag
-
-    address_listB = {pg.rlOffset for pg in mod_B.pages}
-    for pg in mod_A.pages:
-        if pg.rlOffset not in address_listB:
-            pg.Page_indicator=4
-            Temp.append(pg)
-
-    if(len(Temp)!=0):
-        flag = 2
-        return flag
-    '''
     
     for i in mod_B.pages:
         for j in mod_A.pages:
