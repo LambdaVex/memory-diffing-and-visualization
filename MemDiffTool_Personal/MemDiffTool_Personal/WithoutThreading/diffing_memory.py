@@ -11,8 +11,8 @@ import configuration as co
 import heatmap_diffing as hmapdiff
 import time
 
-filename_1="Resources/DiffingXml/NewFinal/SCA.xml"
-filename_2="Resources/DiffingXml/NewFinal/TCA.xml"
+filename_1=co.memory_todiff_1
+filename_2=co.memory_todiff_2
    
 dump_A=xp.parse(md.MemoryDump("heatmap1"),filename_1)
 dump_B=xp.parse(md.MemoryDump("heatmap2"),filename_2)

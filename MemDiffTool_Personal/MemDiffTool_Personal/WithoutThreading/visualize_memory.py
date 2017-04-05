@@ -85,7 +85,7 @@ if __name__ == '__main__':
     heatmap_dump=md.MemoryDump("heatmap")
 
     #filename_1="Complete_XML.xml"
-    filename_1="withoutfinalonenointernetsecond.xml"
+    filename_1=co.memory_tovisualize
     #filename_2="Resources\FullXML.xml"
     #filename_3="testxml_withthread_number_27.xml"
    
