@@ -23,7 +23,7 @@ def extractPages(module):
 
 def display_summaryheatmap(dumpM,listM,SummaryList):
     """
-    Build and show the memory heatmap summary
+    Build and show the memory heatmap summary of the complete memory
     """
     #print("RIGHT DIRRECT")
     #time.sleep(5)

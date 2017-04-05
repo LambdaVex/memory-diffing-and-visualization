@@ -12,7 +12,7 @@ import page as pg
 
 def display_processheatmap(heatmap_dump):
     """
-    Show the memory heatmap
+    Show the memory heatmap of processes
     """
     proc=heatmap_dump.processes[1]
 

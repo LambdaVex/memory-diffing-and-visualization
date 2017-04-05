@@ -94,7 +94,9 @@ def diff_processes(proc_A,proc_B):
 
 
 def display_diffingheatmap(heatmap_dump,dump_A,dump_B):
-    
+    """
+    Process and display the diffing heatmap
+    """  
     list_modules=[]
     
     for proc in heatmap_dump.processes:

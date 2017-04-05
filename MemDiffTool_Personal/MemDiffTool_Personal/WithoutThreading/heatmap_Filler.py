@@ -11,7 +11,9 @@ import memory_dump as md
 import page as pg
 
 def display_summaryfiller(dumpM):
-    
+    """
+    Adds a filler to the summary heatmap
+    """
     #print("RIGHT DIRRECT")
     #time.sleep(5)
     # define processes on Y-Axis

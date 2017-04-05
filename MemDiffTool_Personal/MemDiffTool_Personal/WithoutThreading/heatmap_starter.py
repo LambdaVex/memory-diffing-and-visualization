@@ -11,7 +11,9 @@ import memory_dump as md
 import page as pg
 
 def display_summarystarter(dumpM):
-    
+    """
+    Build and show the content heatmap memory starter
+    """
     #print("RIGHT DIRRECT")
     #time.sleep(5)
     # define processes on Y-Axis

@@ -13,7 +13,7 @@ import page as pg
 
 def display_processheatmap(proc):
     """
-    Build and show the memory heatmap
+    Build and show the memory heatmap of a process
     """
     # define Number of Chunks
     modules=[o.name for o in proc.modules]
