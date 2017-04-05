@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module diff2HtmlCompare</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>diff2HtmlCompare</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Cvisual%20studio%202015%5Cprojects%5Cclean%20version%20it%20lab%5Cmemdiff%5Cmemdifftool_personal%5Cmemdifftool_personal%5Cwithoutthreading%5Cdiff2htmlcompare.py">d:\visual studio 2015\projects\clean version it lab\memdiff\memdifftool_personal\memdifftool_personal\withoutthreading\diff2htmlcompare.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;MIT&nbsp;License<br>
+#<br>
+#&nbsp;Copyright&nbsp;(c)&nbsp;2016&nbsp;Alex&nbsp;Goodman<br>
+#<br>
+#&nbsp;Permission&nbsp;is&nbsp;hereby&nbsp;granted,&nbsp;free&nbsp;of&nbsp;charge,&nbsp;to&nbsp;any&nbsp;person&nbsp;obtaining&nbsp;a&nbsp;copy&nbsp;of<br>
+#&nbsp;this&nbsp;software&nbsp;and&nbsp;associated&nbsp;documentation&nbsp;files&nbsp;(the&nbsp;"Software"),&nbsp;to&nbsp;deal&nbsp;in<br>
+#&nbsp;the&nbsp;Software&nbsp;without&nbsp;restriction,&nbsp;including&nbsp;without&nbsp;limitation&nbsp;the&nbsp;rights&nbsp;to<br>
+#&nbsp;use,&nbsp;copy,&nbsp;modify,&nbsp;merge,&nbsp;publish,&nbsp;distribute,&nbsp;sublicense,&nbsp;and/or&nbsp;sell&nbsp;copies<br>
+#&nbsp;of&nbsp;the&nbsp;Software,&nbsp;and&nbsp;to&nbsp;permit&nbsp;persons&nbsp;to&nbsp;whom&nbsp;the&nbsp;Software&nbsp;is&nbsp;furnished&nbsp;to&nbsp;do<br>
+#&nbsp;so,&nbsp;subject&nbsp;to&nbsp;the&nbsp;following&nbsp;conditions:<br>
+#<br>
+#&nbsp;The&nbsp;above&nbsp;copyright&nbsp;notice&nbsp;and&nbsp;this&nbsp;permission&nbsp;notice&nbsp;shall&nbsp;be&nbsp;included&nbsp;in&nbsp;all<br>
+#&nbsp;copies&nbsp;or&nbsp;substantial&nbsp;portions&nbsp;of&nbsp;the&nbsp;Software.<br>
+#<br>
+#&nbsp;THE&nbsp;SOFTWARE&nbsp;IS&nbsp;PROVIDED&nbsp;"AS&nbsp;IS",&nbsp;WITHOUT&nbsp;WARRANTY&nbsp;OF&nbsp;ANY&nbsp;KIND,&nbsp;EXPRESS&nbsp;OR<br>
+#&nbsp;IMPLIED,&nbsp;INCLUDING&nbsp;BUT&nbsp;NOT&nbsp;LIMITED&nbsp;TO&nbsp;THE&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANTABILITY,<br>
+#&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE&nbsp;AND&nbsp;NONINFRINGEMENT.&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;THE<br>
+#&nbsp;AUTHORS&nbsp;OR&nbsp;COPYRIGHT&nbsp;HOLDERS&nbsp;BE&nbsp;LIABLE&nbsp;FOR&nbsp;ANY&nbsp;CLAIM,&nbsp;DAMAGES&nbsp;OR&nbsp;OTHER<br>
+#&nbsp;LIABILITY,&nbsp;WHETHER&nbsp;IN&nbsp;AN&nbsp;ACTION&nbsp;OF&nbsp;CONTRACT,&nbsp;TORT&nbsp;OR&nbsp;OTHERWISE,&nbsp;ARISING&nbsp;FROM,<br>
+#&nbsp;OUT&nbsp;OF&nbsp;OR&nbsp;IN&nbsp;CONNECTION&nbsp;WITH&nbsp;THE&nbsp;SOFTWARE&nbsp;OR&nbsp;THE&nbsp;USE&nbsp;OR&nbsp;OTHER&nbsp;DEALINGS&nbsp;IN&nbsp;THE<br>
+#&nbsp;SOFTWARE.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="argparse.html">argparse</a><br>
+<a href="difflib.html">difflib</a><br>
+</td><td width="25%" valign=top><a href="io.html">io</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="pygments.html">pygments</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="webbrowser.html">webbrowser</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="diff2HtmlCompare.html#CodeDiff">CodeDiff</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="pygments.formatters.html.html#HtmlFormatter">pygments.formatters.html.HtmlFormatter</a>(<a href="pygments.formatter.html#Formatter">pygments.formatter.Formatter</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="diff2HtmlCompare.html#DiffHtmlFormatter">DiffHtmlFormatter</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="pygments.lexer.html#RegexLexer">pygments.lexer.RegexLexer</a>(<a href="pygments.lexer.html#Lexer">pygments.lexer.Lexer</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="diff2HtmlCompare.html#DefaultLexer">DefaultLexer</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="CodeDiff">class <strong>CodeDiff</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Manages&nbsp;a&nbsp;pair&nbsp;of&nbsp;source&nbsp;files&nbsp;and&nbsp;generates&nbsp;a&nbsp;single&nbsp;html&nbsp;diff&nbsp;page&nbsp;comparing<br>
+the&nbsp;contents.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="CodeDiff-__init__"><strong>__init__</strong></a>(self, fromfile, tofile, fromtxt=None, totxt=None, name=None)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="CodeDiff-format"><strong>format</strong></a>(self, options)</dt></dl>
+
+<dl><dt><a name="CodeDiff-getDiffDetails"><strong>getDiffDetails</strong></a>(self, fromdesc='', todesc='', context=False, numlines=5, tabSize=8)</dt></dl>
+
+<dl><dt><a name="CodeDiff-write"><strong>write</strong></a>(self, path)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>diffCssFile</strong> = './deps/diff.css'</dl>
+
+<dl><dt><strong>diffJsFile</strong> = './deps/diff.js'</dl>
+
+<dl><dt><strong>jqueryJsFile</strong> = './deps/jquery.min.js'</dl>
+
+<dl><dt><strong>pygmentsCssFile</strong> = './deps/codeformats/%s.css'</dl>
+
+<dl><dt><strong>resetCssFile</strong> = './deps/reset.css'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DefaultLexer">class <strong>DefaultLexer</strong></a>(<a href="pygments.lexer.html#RegexLexer">pygments.lexer.RegexLexer</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Simply&nbsp;lex&nbsp;each&nbsp;line&nbsp;as&nbsp;a&nbsp;token.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="diff2HtmlCompare.html#DefaultLexer">DefaultLexer</a></dd>
+<dd><a href="pygments.lexer.html#RegexLexer">pygments.lexer.RegexLexer</a></dd>
+<dd><a href="pygments.lexer.html#Lexer">pygments.lexer.Lexer</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>aliases</strong> = ['default']</dl>
+
+<dl><dt><strong>filenames</strong> = ['*']</dl>
+
+<dl><dt><strong>name</strong> = 'Default'</dl>
+
+<dl><dt><strong>tokens</strong> = {'root': [(r'.*\n', Token.Text)]}</dl>
+
+<hr>
+Methods inherited from <a href="pygments.lexer.html#RegexLexer">pygments.lexer.RegexLexer</a>:<br>
+<dl><dt><a name="DefaultLexer-get_tokens_unprocessed"><strong>get_tokens_unprocessed</strong></a>(self, text, stack=('root',))</dt><dd><tt>Split&nbsp;``text``&nbsp;into&nbsp;(tokentype,&nbsp;text)&nbsp;pairs.<br>
+&nbsp;<br>
+``stack``&nbsp;is&nbsp;the&nbsp;inital&nbsp;stack&nbsp;(default:&nbsp;``['root']``)</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="pygments.lexer.html#RegexLexer">pygments.lexer.RegexLexer</a>:<br>
+<dl><dt><strong>flags</strong> = 8</dl>
+
+<hr>
+Methods inherited from <a href="pygments.lexer.html#Lexer">pygments.lexer.Lexer</a>:<br>
+<dl><dt><a name="DefaultLexer-__init__"><strong>__init__</strong></a>(self, **options)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="DefaultLexer-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="DefaultLexer-add_filter"><strong>add_filter</strong></a>(self, filter_, **options)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;stream&nbsp;filter&nbsp;to&nbsp;this&nbsp;lexer.</tt></dd></dl>
+
+<dl><dt><a name="DefaultLexer-get_tokens"><strong>get_tokens</strong></a>(self, text, unfiltered=False)</dt><dd><tt>Return&nbsp;an&nbsp;iterable&nbsp;of&nbsp;(tokentype,&nbsp;value)&nbsp;pairs&nbsp;generated&nbsp;from<br>
+`text`.&nbsp;If&nbsp;`unfiltered`&nbsp;is&nbsp;set&nbsp;to&nbsp;`True`,&nbsp;the&nbsp;filtering&nbsp;mechanism<br>
+is&nbsp;bypassed&nbsp;even&nbsp;if&nbsp;filters&nbsp;are&nbsp;defined.<br>
+&nbsp;<br>
+Also&nbsp;preprocess&nbsp;the&nbsp;text,&nbsp;i.e.&nbsp;expand&nbsp;tabs&nbsp;and&nbsp;strip&nbsp;it&nbsp;if<br>
+wanted&nbsp;and&nbsp;applies&nbsp;registered&nbsp;filters.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="pygments.lexer.html#Lexer">pygments.lexer.Lexer</a>:<br>
+<dl><dt><a name="DefaultLexer-analyse_text"><strong>analyse_text</strong></a> = text_analyse(text)</dt><dd><tt>Has&nbsp;to&nbsp;return&nbsp;a&nbsp;float&nbsp;between&nbsp;``0``&nbsp;and&nbsp;``1``&nbsp;that&nbsp;indicates<br>
+if&nbsp;a&nbsp;lexer&nbsp;wants&nbsp;to&nbsp;highlight&nbsp;this&nbsp;text.&nbsp;Used&nbsp;by&nbsp;``guess_lexer``.<br>
+If&nbsp;this&nbsp;method&nbsp;returns&nbsp;``0``&nbsp;it&nbsp;won't&nbsp;highlight&nbsp;it&nbsp;in&nbsp;any&nbsp;case,&nbsp;if<br>
+it&nbsp;returns&nbsp;``1``&nbsp;highlighting&nbsp;with&nbsp;this&nbsp;lexer&nbsp;is&nbsp;guaranteed.<br>
+&nbsp;<br>
+The&nbsp;`LexerMeta`&nbsp;metaclass&nbsp;automatically&nbsp;wraps&nbsp;this&nbsp;function&nbsp;so<br>
+that&nbsp;it&nbsp;works&nbsp;like&nbsp;a&nbsp;static&nbsp;method&nbsp;(no&nbsp;``self``&nbsp;or&nbsp;``cls``<br>
+parameter)&nbsp;and&nbsp;the&nbsp;return&nbsp;value&nbsp;is&nbsp;automatically&nbsp;converted&nbsp;to<br>
+`float`.&nbsp;If&nbsp;the&nbsp;return&nbsp;value&nbsp;is&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;that&nbsp;is&nbsp;boolean&nbsp;`False`<br>
+it's&nbsp;the&nbsp;same&nbsp;as&nbsp;if&nbsp;the&nbsp;return&nbsp;values&nbsp;was&nbsp;``0.0``.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="pygments.lexer.html#Lexer">pygments.lexer.Lexer</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="pygments.lexer.html#Lexer">pygments.lexer.Lexer</a>:<br>
+<dl><dt><strong>alias_filenames</strong> = []</dl>
+
+<dl><dt><strong>mimetypes</strong> = []</dl>
+
+<dl><dt><strong>priority</strong> = 0</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DiffHtmlFormatter">class <strong>DiffHtmlFormatter</strong></a>(<a href="pygments.formatters.html.html#HtmlFormatter">pygments.formatters.html.HtmlFormatter</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Formats&nbsp;a&nbsp;single&nbsp;source&nbsp;file&nbsp;with&nbsp;pygments&nbsp;and&nbsp;adds&nbsp;diff&nbsp;highlights&nbsp;based&nbsp;on&nbsp;the&nbsp;<br>
+diff&nbsp;details&nbsp;given.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="diff2HtmlCompare.html#DiffHtmlFormatter">DiffHtmlFormatter</a></dd>
+<dd><a href="pygments.formatters.html.html#HtmlFormatter">pygments.formatters.html.HtmlFormatter</a></dd>
+<dd><a href="pygments.formatter.html#Formatter">pygments.formatter.Formatter</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DiffHtmlFormatter-__init__"><strong>__init__</strong></a>(self, isLeft, diffs, *args, **kwargs)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="DiffHtmlFormatter-getDiffLineNos"><strong>getDiffLineNos</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="DiffHtmlFormatter-wrap"><strong>wrap</strong></a>(self, source, outfile)</dt><dd><tt>Wrap&nbsp;the&nbsp;``source``,&nbsp;which&nbsp;is&nbsp;a&nbsp;generator&nbsp;yielding<br>
+individual&nbsp;lines,&nbsp;in&nbsp;custom&nbsp;generators.&nbsp;See&nbsp;docstring<br>
+for&nbsp;`format`.&nbsp;Can&nbsp;be&nbsp;overridden.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>diffs</strong> = None</dl>
+
+<dl><dt><strong>isLeft</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="pygments.formatters.html.html#HtmlFormatter">pygments.formatters.html.HtmlFormatter</a>:<br>
+<dl><dt><a name="DiffHtmlFormatter-format_unencoded"><strong>format_unencoded</strong></a>(self, tokensource, outfile)</dt><dd><tt>The&nbsp;formatting&nbsp;process&nbsp;uses&nbsp;several&nbsp;nested&nbsp;generators;&nbsp;which&nbsp;of<br>
+them&nbsp;are&nbsp;used&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;user's&nbsp;options.<br>
+&nbsp;<br>
+Each&nbsp;generator&nbsp;should&nbsp;take&nbsp;at&nbsp;least&nbsp;one&nbsp;argument,&nbsp;``inner``,<br>
+and&nbsp;wrap&nbsp;the&nbsp;pieces&nbsp;of&nbsp;text&nbsp;generated&nbsp;by&nbsp;this.<br>
+&nbsp;<br>
+Always&nbsp;yield&nbsp;2-tuples:&nbsp;(code,&nbsp;text).&nbsp;If&nbsp;"code"&nbsp;is&nbsp;1,&nbsp;the&nbsp;text<br>
+is&nbsp;part&nbsp;of&nbsp;the&nbsp;original&nbsp;tokensource&nbsp;being&nbsp;highlighted,&nbsp;if&nbsp;it's<br>
+0,&nbsp;the&nbsp;text&nbsp;is&nbsp;some&nbsp;piece&nbsp;of&nbsp;wrapping.&nbsp;This&nbsp;makes&nbsp;it&nbsp;possible&nbsp;to<br>
+use&nbsp;several&nbsp;different&nbsp;wrappers&nbsp;that&nbsp;process&nbsp;the&nbsp;original&nbsp;source<br>
+linewise,&nbsp;e.g.&nbsp;line&nbsp;number&nbsp;generators.</tt></dd></dl>
+
+<dl><dt><a name="DiffHtmlFormatter-get_style_defs"><strong>get_style_defs</strong></a>(self, arg=None)</dt><dd><tt>Return&nbsp;CSS&nbsp;style&nbsp;definitions&nbsp;for&nbsp;the&nbsp;classes&nbsp;produced&nbsp;by&nbsp;the&nbsp;current<br>
+highlighting&nbsp;style.&nbsp;``arg``&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;list&nbsp;of&nbsp;selectors&nbsp;to<br>
+insert&nbsp;before&nbsp;the&nbsp;token&nbsp;type&nbsp;classes.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="pygments.formatters.html.html#HtmlFormatter">pygments.formatters.html.HtmlFormatter</a>:<br>
+<dl><dt><strong>aliases</strong> = ['html']</dl>
+
+<dl><dt><strong>filenames</strong> = ['*.html', '*.htm']</dl>
+
+<dl><dt><strong>name</strong> = 'HTML'</dl>
+
+<hr>
+Methods inherited from <a href="pygments.formatter.html#Formatter">pygments.formatter.Formatter</a>:<br>
+<dl><dt><a name="DiffHtmlFormatter-format"><strong>format</strong></a>(self, tokensource, outfile)</dt><dd><tt>Format&nbsp;``tokensource``,&nbsp;an&nbsp;iterable&nbsp;of&nbsp;``(tokentype,&nbsp;tokenstring)``<br>
+tuples&nbsp;and&nbsp;write&nbsp;it&nbsp;into&nbsp;``outfile``.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="pygments.formatter.html#Formatter">pygments.formatter.Formatter</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="pygments.formatter.html#Formatter">pygments.formatter.Formatter</a>:<br>
+<dl><dt><strong>unicodeoutput</strong> = True</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-main"><strong>main</strong></a>(file1, file2, outputpath, options)</dt></dl>
+ <dl><dt><a name="-show"><strong>show</strong></a>(outputpath)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Comment</strong> = Token.Comment<br>
+<strong>Error</strong> = Token.Error<br>
+<strong>Escape</strong> = Token.Escape<br>
+<strong>Generic</strong> = Token.Generic<br>
+<strong>HTML_TEMPLATE</strong> = '<font color="#c040c0">\n</font>&lt;!DOCTYPE html&gt;<font color="#c040c0">\n</font>&lt;html class="no-js"&gt;<font color="#c040c0">\n</font>    &lt;head&gt;...="text/javascript"&gt;&lt;/script&gt;<font color="#c040c0">\n</font>    &lt;/body&gt;<font color="#c040c0">\n</font>&lt;/html&gt;<font color="#c040c0">\n</font>'<br>
+<strong>Keyword</strong> = Token.Keyword<br>
+<strong>Literal</strong> = Token.Literal<br>
+<strong>Name</strong> = Token.Name<br>
+<strong>Number</strong> = Token.Literal.Number<br>
+<strong>Operator</strong> = Token.Operator<br>
+<strong>Other</strong> = Token.Other<br>
+<strong>PYGMENTS_STYLES</strong> = ['vs', 'xcode']<br>
+<strong>Punctuation</strong> = Token.Punctuation<br>
+<strong>STANDARD_TYPES</strong> = {Token: '', Token.Comment: 'c', Token.Comment.Hashbang: 'ch', Token.Comment.Multiline: 'cm', Token.Comment.Preproc: 'cp', Token.Comment.PreprocFile: 'cpf', Token.Comment.Single: 'c1', Token.Comment.Special: 'cs', Token.Error: 'err', Token.Escape: 'esc', ...}<br>
+<strong>String</strong> = Token.Literal.String<br>
+<strong>Text</strong> = Token.Text<br>
+<strong>Token</strong> = Token<br>
+<strong>Whitespace</strong> = Token.Text.Whitespace</td></tr></table>
+</body></html>
