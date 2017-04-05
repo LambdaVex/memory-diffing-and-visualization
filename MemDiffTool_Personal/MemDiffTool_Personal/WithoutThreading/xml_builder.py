@@ -3,6 +3,9 @@ import pandas
 import os
 
 def build_file(dump1):
+    """
+    Create an XML File that has the contents of the studied memory dump file 
+    """
     data = ET.Element("dump")
     for i in dump1.processes:
         #to get rid of divide by zero error
@@ -19,6 +22,9 @@ def build_file(dump1):
     tree.write("SecondCacheAgain.xml")
     
 def combine_xml(files):
+    """
+    Combine multiple XML Files in one
+    """
     first = None
     for filename in files:
         data = ET.parse(filename).getroot()

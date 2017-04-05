@@ -23,6 +23,9 @@ import heatmap_summary as shmap
 import toolz as tz
 
 def get_index(list_modules,module):
+    """
+    Search for an element efficiently within a list 
+    """
     for index, item in enumerate(list_modules):
         if item.name == module:
             break
@@ -30,7 +33,9 @@ def get_index(list_modules,module):
             index = -1
     return index
 def parse(heatmap_dump,filename):
-
+    """
+    Read and parse an XML file. Convert it to a dump-file object that has processes, modules and pages.
+    """
     #start_time = time.time()
     
 
@@ -63,7 +68,10 @@ def parse(heatmap_dump,filename):
         heatmap_dump.processes[i].sum_sizes=sum_sizes
     return heatmap_dump
 def truncate(f, n):
-    '''Truncates/pads a float f to n decimal places without rounding'''
+    """
+    Truncates/pads a float f to n decimal places without rounding
+    """
+
     s = '{}'.format(f)
     if 'e' in s or 'E' in s:
         return '{0:.{1}f}'.format(f, n)
