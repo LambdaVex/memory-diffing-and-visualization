@@ -8,7 +8,7 @@ dumpLoc=co.dump_memory_location
 
 def vol_pslist():
     """
-    Invoke lists from the memory dump.
+    Invoke processes list from the memory dump.
     """
     f = open(co.output_location+"\pslist.info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 pslist"
@@ -26,7 +26,7 @@ def vol_memmap(PID):
 
 def vol_dlllist(PID):
     """
-    Invoke dlls from the memory dump.
+    Invoke dlls list from the memory dump.
     """
     f = open(co.output_location+"\dlllist"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 dlllist -p " + str(PID)
@@ -35,7 +35,7 @@ def vol_dlllist(PID):
 
 def vol_memdump(PID):
     """
-    Initialize the memory dump to be used by the volatility foundation.
+    Invoke all memory resident pages in a process
     """
     f = open(co.output_location+"\memdump"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memdump -p " + str(PID) +" -D "+co.output_location+"\DumpFolder"
@@ -45,7 +45,7 @@ def vol_memdump(PID):
 
 def vol_new(PID):
     """
-    Cashes the processes.
+    Invoke all memory resident pages in a process
     """
     f = open(co.output_location+"\memdump"+"_"+str(PID)+".info", "w")
     Command=volatilityLoc+" -f "+dumpLoc+" --profile=Win7SP1x64 memdump -p " + str(PID) +" -D "+co.output_location+"\DumpFolder"
